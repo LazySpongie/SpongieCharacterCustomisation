@@ -1,2 +1,2 @@
-# SpongieHair
-[Steam Workshop Page](https://steamcommunity.com/sharedfiles/filedetails/?id=2463184726)
+# Spongie's Character Customisation
+[Steam Workshop Page](https://steamcommunity.com/sharedfiles/filedetails/?id=3414634809)
