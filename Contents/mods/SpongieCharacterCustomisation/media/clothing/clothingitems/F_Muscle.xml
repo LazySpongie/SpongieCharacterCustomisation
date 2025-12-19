@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<clothingItem>
+	<m_MaleModel></m_MaleModel>
+	<m_FemaleModel></m_FemaleModel>
+	<m_GUID>muscleca-femm-46c5-bf0d-3fdfddb473ec</m_GUID>
+	<m_Static>false</m_Static>
+	<m_AllowRandomHue>false</m_AllowRandomHue>
+	<m_AllowRandomTint>false</m_AllowRandomTint>
+	<m_AttachBone></m_AttachBone>
+	<m_BaseTextures>Body/Muscle/F_Muscle01</m_BaseTextures>
+	<m_BaseTextures>Body/Muscle/F_Muscle02</m_BaseTextures>
+	<m_BaseTextures>Body/Muscle/F_Muscle03</m_BaseTextures>
+	<m_BaseTextures>Body/Muscle/F_Muscle04</m_BaseTextures>
+	<m_BaseTextures>Body/Muscle/F_Muscle05</m_BaseTextures>
+	<m_BaseTextures>Body/Muscle/F_MuscleStrong01</m_BaseTextures>
+	<m_BaseTextures>Body/Muscle/F_MuscleStrong02</m_BaseTextures>
+	<m_BaseTextures>Body/Muscle/F_MuscleStrong03</m_BaseTextures>
+	<m_BaseTextures>Body/Muscle/F_MuscleStrong04</m_BaseTextures>
+	<m_BaseTextures>Body/Muscle/F_MuscleStrong05</m_BaseTextures>
+</clothingItem>

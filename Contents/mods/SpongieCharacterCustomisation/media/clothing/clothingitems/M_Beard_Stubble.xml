@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<clothingItem>
+	<m_MaleModel></m_MaleModel>
+	<m_FemaleModel></m_FemaleModel>
+	<m_GUID>1b0b1328-c596-4df1-a987-4aecd71c4e89</m_GUID>
+	<m_Static>false</m_Static>
+	<m_AllowRandomHue>false</m_AllowRandomHue>
+	<m_AllowRandomTint>false</m_AllowRandomTint>
+	<m_AttachBone></m_AttachBone>
+	<m_BaseTextures>body\stubble\m_beard_stubble</m_BaseTextures>
+	<m_BaseTextures>body\stubble\m_beard_stubble</m_BaseTextures>
+	<m_BaseTextures>body\stubble\m_beard_stubble</m_BaseTextures>
+	<m_BaseTextures>body\stubble\m_beard_stubble02</m_BaseTextures>
+	<m_BaseTextures>body\stubble\m_beard_stubble02</m_BaseTextures>
+</clothingItem>

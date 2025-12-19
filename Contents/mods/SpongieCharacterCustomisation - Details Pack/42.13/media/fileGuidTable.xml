@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<fileGuidTable>
+
+	<!--FRECKLES-->
+	<files>
+		<path>media/clothing/clothingItems/Detail_Freckles.xml</path>
+		<guid>4d2f0b29-4141-436b-1e84-41ebaef5ea2b</guid>
+	</files>
+	<files>
+		<path>media/clothing/clothingItems/Detail_Moles.xml</path>
+		<guid>84af1eb8-e3eb-4cd5-b0fc-5e3bc139c09b</guid>
+	</files>
+
+	<!--SCARS-->
+	<files>
+		<path>media/clothing/clothingItems/Detail_Scar_Face.xml</path>
+		<guid>17066c2f-0b7b-4f1f-8529-12aeed245c09</guid>
+	</files>
+	<files>
+		<path>media/clothing/clothingItems/Detail_Scar_Body_Chest.xml</path>
+		<guid>7d5406a9-913e-4b93-b1a4-0acb6889024a</guid>
+	</files>
+	<files>
+		<path>media/clothing/clothingItems/Detail_Scar_Body_Stomach.xml</path>
+		<guid>5cce2bac-9cb1-4c89-b482-293f490b7890</guid>
+	</files>
+	<files>
+		<path>media/clothing/clothingItems/Detail_Scar_Body_Other.xml</path>
+		<guid>0b6abee7-7f5a-4608-9f84-78db5b0609fe</guid>
+	</files>
+	
+	<!--OTHER-->
+	<files>
+		<path>media/clothing/clothingItems/Detail_Burn.xml</path>
+		<guid>b004e4e7-5f5c-46a2-b0a9-1f8117a5c200</guid>
+	</files>
+	<files>
+		<path>media/clothing/clothingItems/Detail_MissingEye.xml</path>
+		<guid>13ee753d-688d-4d1d-8cd4-ddd751120552</guid>
+	</files>
+	
+</fileGuidTable>

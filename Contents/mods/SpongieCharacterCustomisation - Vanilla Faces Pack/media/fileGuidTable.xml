@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<fileGuidTable>
+	<!--FACES-->
+	<files>
+		<path>media/clothing/clothingItems/Face_CaseyJo.xml</path>
+		<guid>421deccc-9ad1-4437-9df1-4ee1d4eaa2cb</guid>
+	</files>
+	<files>
+		<path>media/clothing/clothingItems/Face_Janine.xml</path>
+		<guid>1847ca8f-8f3d-4fc6-96d1-4325e2bb2074</guid>
+	</files>
+	<files>
+		<path>media/clothing/clothingItems/Face_Maryanne.xml</path>
+		<guid>d9a4ddfc-d580-4b03-90c6-6ebb8e266f66</guid>
+	</files>
+	<files>
+		<path>media/clothing/clothingItems/Face_Vicky.xml</path>
+		<guid>e48703c7-03e3-48e9-8d20-f09b48d6dcaf</guid>
+	</files>
+	
+	
+	<files>
+		<path>media/clothing/clothingItems/Face_Frank.xml</path>
+		<guid>7e10f6bf-2cc2-45e9-815d-06225d71af84</guid>
+	</files>
+	<files>
+		<path>media/clothing/clothingItems/Face_James.xml</path>
+		<guid>3c6d49a6-7e59-4a78-bb9c-9267ffa94305</guid>
+	</files>
+	<files>
+		<path>media/clothing/clothingItems/Face_Chris.xml</path>
+		<guid>21bd4cd4-14b8-4ef8-bf78-3c9c061dba27</guid>
+	</files>
+	<files>
+		<path>media/clothing/clothingItems/Face_Hank.xml</path>
+		<guid>51f2ed00-0738-4d1e-a1b3-29b7756b5329</guid>
+	</files>
+
+
+</fileGuidTable>

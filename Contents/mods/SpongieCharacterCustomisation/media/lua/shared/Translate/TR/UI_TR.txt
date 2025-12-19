@@ -1,0 +1,21 @@
+UI_TR = {
+	UI_ChestHair = "Vücut Kýlý"
+    UI_Muscle = "Kas",
+    UI_BodyHairGrowth = "Vücut Kýllarýnýn Uzamasý",
+    UI_characreation_face = "Yüz",
+    UI_characreation_bodydetail = "Detaylar",
+    UI_characreation_charapanel = "Görünüþ",
+    UI_characreation_appearance = "Görünüþ",
+    UI_characreation_shave = "Týraþ",
+
+    UI_characreation_facedisabled = "Yüzleri deðiþtirme etkisizleþtirilmiþ durumda.",
+    UI_characreation_detailsdisabled = "Detaylarý deðiþtirme etkisizleþtirilmiþ durumda.",
+    
+    UI_shave_stubble_beard = "Sakalý Týraþ Et",
+    UI_shave_stubble_head = "Saçý Týraþ Et",
+    UI_shave_stubble_body = "Vücut Kýllarýný Týraþ Et",
+    
+    UI_debug_add_stubble_beard = "(Debug) Sakal Uzamasý Ekle",
+    UI_debug_add_stubble_head = "(Debug) Saç Uzamasý Ekle",
+    UI_debug_add_stubble_body = "(Debug) Vücut Kýlý Uzamasý Ekle",
+}

@@ -1,0 +1,51 @@
+
+[ ALERT_CONFIG ]
+link1 = Spongies Kofi = https://steamcommunity.com/linkfilter/?u=https://ko-fi.com/lazyspongie,
+link2 = Workshop = https://steamcommunity.com/id/LazySpongie/myworkshopfiles/?appid=108600,
+[ ------ ]
+[ RELEASE ]
+Features:
+- Select different face textures
+- Add details to your character
+- Works on all skintones
+- Visible muscles depending on strength level. Can be changed in sandbox settings
+- Replaces chest hair with body hair for both body types. Now separate from the body texture
+- Replaces stubble. Now has a different texture for darker skintones
+- Stubble and body hair grow in-game and can be shaved. Can be changed in sandbox settings
+- Mod Support
+[ ------ ]
+[ VERSION 2 ]
+- Updated Frank textures
+- Hopefully fixed issue with Actual Classical Watches
+- Made the muscle and body hair toggles more noticeable
+- Fixed Transmog compatibility
+- Added face template textures
+- Added UA - Бен
+- Added RU - Malevi4
+- Added TR - VVentos
+[ ------ ]
+[ VERSION 2.1 ]
+- Fixed Wash Yourself for 42.4.0
+- Added sandbox option to disable makeup washing off (B42 only)
+[ ------ ]
+[ VERSION 3 ]
+- Fixed errors with 42.12
+- Fixed being able to see customisation in the inventory in 42.12
+- Fixed Ellie's Tattoos appearing below customisation
+- Fixed muscle visuals not updating when toggling them on and off
+- Fixed muscle level up not working on languages other than english
+- Fixed TR having wrong encoding on b41
+- Hopefully fixed linux case insensitive file name issue
+- Changed stubble/body hair growth to use hours instead of days
+[ ------ ]
+[ VERSION 3.1 ]
+- Fixed issue where body hair grows too fast
+[ ------ ]
+[ VERSION 3.2 ]
+- Fixed memory error when shooting zombies
+- Fixed more issues with body hair growth
+- Fixed missing eye having wrong texture
+[ ------ ]
+[ VERSION 4 ]
+- B42 MP Support
+[ ------ ]

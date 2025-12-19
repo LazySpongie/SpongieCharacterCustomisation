@@ -1,0 +1,34 @@
+Sandbox_TR = {
+  Sandbox_SPNCharacterCustomisation = "Spongie's Character Customisation",
+
+  Sandbox_SPNCharCustom_AllowCustomisationChange = "Oyun Ýçi Görünüm Özelleþtirme",
+  Sandbox_SPNCharCustom_AllowCustomisationChange_tooltip = "Görünüm Deðiþtiriciye sahip yöneticiler veya oyuncular bunu görmezden gelir",
+  Sandbox_SPNCharCustom_AllowCustomisationChange_Options_option1 = "Yüz ve Detaylar",
+  Sandbox_SPNCharCustom_AllowCustomisationChange_Options_option2 = "Yalnýzca Yüz",
+  Sandbox_SPNCharCustom_AllowCustomisationChange_Options_option3 = "Yalnýzca Detaylar",
+  Sandbox_SPNCharCustom_AllowCustomisationChange_Options_option4 = "Etkisizleþtirildi",
+
+  Sandbox_SPNCharCustom_AdminLockedCustomisation = "Admin Özel Görünüm Özelleþtirme",
+  Sandbox_SPNCharCustom_AdminLockedCustomisation_tooltip = "Normal oyuncular için gizli olan özelleþtirme kategorileri. Virgülle ayrýlmýþ, örneðin: joke,halloween,special",
+
+  Sandbox_SPNCharCustom_BodyHairGrowthEnabled = "Vücut Kýlý/Sakal Uzamasý",
+  Sandbox_SPNCharCustom_BodyHairGrowthEnabled_tooltip = "Vücut kýllarý ve kirli sakal oyun içinde uzar",
+
+  Sandbox_SPNCharCustom_BodyHairGrowth = "Vücut Kýllarýnýn Uzamasý (Gün)",
+  Sandbox_SPNCharCustom_BodyHairGrowth_tooltip = "Uzamayý devre dýþý býrakmak için 0 olarak ayarlayýn",
+  
+  Sandbox_SPNCharCustom_StubbleBeardGrowth = "Sakal Uzamasý (Gün)",
+  Sandbox_SPNCharCustom_StubbleBeardGrowth_tooltip = "Uzamayý devre dýþý býrakmak için 0 olarak ayarlayýn",
+  
+  Sandbox_SPNCharCustom_StubbleHeadGrowth = "Saç Uzamasý (Gün)",
+  Sandbox_SPNCharCustom_StubbleHeadGrowth_tooltip = "Uzamayý devre dýþý býrakmak için 0 olarak ayarlayýn",
+  
+  Sandbox_SPNCharCustom_MuscleVisuals = "Görünür Kaslar",
+  Sandbox_SPNCharCustom_MuscleVisuals_tooltip = "Güç seviyesine baðlý olarak karakter üzerinde görünür kaslar gösterme",
+  Sandbox_SPNCharCustom_MuscleVisuals_Options_option1 = "Herkes için etkin",
+  Sandbox_SPNCharCustom_MuscleVisuals_Options_option2 = "Herkes için kapalý",
+  Sandbox_SPNCharCustom_MuscleVisuals_Options_option3 = "Oyuncu tercihi",
+
+  Sandbox_SPNCharCustom_MissingEyeVisionModifier = "Eksik Gözün Görmeye Etkisi",
+  Sandbox_SPNCharCustom_MissingEyeVisionModifier_tooltip = "Gözleri eksik olan oyuncularýn görüþlerinde kötüleþme olacak - Devre dýþý býrakmak için 1.0 olarak ayarlayýn",
+}

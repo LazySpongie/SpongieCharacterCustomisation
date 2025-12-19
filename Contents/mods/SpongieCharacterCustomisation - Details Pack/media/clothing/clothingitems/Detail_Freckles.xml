@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<clothingItem>
+	<m_MaleModel></m_MaleModel>
+	<m_FemaleModel></m_FemaleModel>
+	<m_GUID>4d2f0b29-4141-436b-1e84-41ebaef5ea2b</m_GUID>
+	<m_Static>false</m_Static>
+	<m_AllowRandomHue>false</m_AllowRandomHue>
+	<m_AllowRandomTint>false</m_AllowRandomTint>
+	<m_AttachBone></m_AttachBone>
+	<m_BaseTextures>Details/Freckles/Freckles1</m_BaseTextures>
+	<m_BaseTextures>Details/Freckles/Freckles1_02</m_BaseTextures>
+	<m_BaseTextures>Details/Freckles/Freckles2</m_BaseTextures>
+	<m_BaseTextures>Details/Freckles/Freckles2_02</m_BaseTextures>
+	<m_BaseTextures>Details/Freckles/Freckles3</m_BaseTextures>
+	<m_BaseTextures>Details/Freckles/Freckles3_02</m_BaseTextures>
+	<m_BaseTextures>Details/Freckles/FrecklesBody1</m_BaseTextures>
+	<m_BaseTextures>Details/Freckles/FrecklesBody1_02</m_BaseTextures>
+</clothingItem>

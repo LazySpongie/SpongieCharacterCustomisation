@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<clothingItem>
+	<m_MaleModel></m_MaleModel>
+	<m_FemaleModel></m_FemaleModel>
+	<m_GUID>17066c2f-0b7b-4f1f-8529-12aeed245c09</m_GUID>
+	<m_Static>false</m_Static>
+	<m_AllowRandomHue>false</m_AllowRandomHue>
+	<m_AllowRandomTint>false</m_AllowRandomTint>
+	<m_AttachBone></m_AttachBone>
+
+	<m_BaseTextures>Details/Scars/Face/Scar_Face1_L</m_BaseTextures>
+	<m_BaseTextures>Details/Scars/Face/Scar_Face1_R</m_BaseTextures>
+
+	<m_BaseTextures>Details/Scars/Face/Scar_Face2</m_BaseTextures>
+
+	<m_BaseTextures>Details/Scars/Face/Scar_Face3_L</m_BaseTextures>
+	<m_BaseTextures>Details/Scars/Face/Scar_Face3_R</m_BaseTextures>
+	
+	<m_BaseTextures>Details/Scars/Face/Scar_Face4_L</m_BaseTextures>
+	<m_BaseTextures>Details/Scars/Face/Scar_Face4_R</m_BaseTextures>
+
+	<m_BaseTextures>Details/Scars/Face/Scar_Face5_L</m_BaseTextures>
+	<m_BaseTextures>Details/Scars/Face/Scar_Face5_R</m_BaseTextures>
+
+	<m_BaseTextures>Details/Scars/Face/Scar_Face6_L</m_BaseTextures>
+	<m_BaseTextures>Details/Scars/Face/Scar_Face6_R</m_BaseTextures>
+
+	<m_BaseTextures>Details/Scars/Face/Scar_Face7</m_BaseTextures>
+	<m_BaseTextures>Details/Scars/Face/Scar_Face8</m_BaseTextures>
+
+</clothingItem>

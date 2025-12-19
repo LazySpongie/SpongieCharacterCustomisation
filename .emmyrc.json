@@ -1,0 +1,45 @@
+{
+    "$schema": "https://raw.githubusercontent.com/EmmyLuaLs/emmylua-analyzer-rust/refs/heads/main/crates/emmylua_code_analysis/resources/schema.json",
+    "workspace": {
+        "enableReindex": false,
+        "encoding": "utf-8",
+        "ignoreDir": [
+            "Contents/mods/SpongieCharacterCustomisation/42.0",
+            "Contents/mods/SpongieCharacterCustomisation/media"
+        ],
+        "ignoreGlobs": [],
+        "library": [
+            "$PZ_UMBRELLA"
+        ],
+        "moduleMap": [],
+        "preloadFileSize": 0,
+        "reindexDuration": 5000,
+        "workspaceRoots": [
+            "Contents/mods/SpongieCharacterCustomisation/42.13/media/lua"
+        ]
+    },
+    "runtime": {
+        "extensions": [],
+        "frameworkVersions": [],
+        "nonstandardSymbol": [],
+        "requireLikeFunction": [],
+        "requirePattern": [
+            "Contents/mods/SpongieCharacterCustomisation/42.13/media/lua/shared/?.lua",
+            "Contents/mods/SpongieCharacterCustomisation/42.13/media/lua/client/?.lua",
+            "Contents/mods/SpongieCharacterCustomisation/42.13/media/lua/server/?.lua"
+        ],
+        "special": {},
+        "version": "Lua5.1"
+    },
+    "diagnostics": {
+        "diagnosticInterval": 500,
+        "disable": [
+            "unnecessary-if"
+        ],
+        "enable": true,
+        "enables": [],
+        "globals": [],
+        "globalsRegex": [],
+        "severity": {}
+    }
+}

@@ -1,0 +1,11 @@
+Tooltip_TR = {
+    Tooltip_Isometric = "Ýzometrik Görünüm"
+    Tooltip_Muscle = "Etkinleþtir - Kaslar bu karakterde görünür"
+    Tooltip_BodyHairGrowth = "Etkinleþtir - Vücut kýllarý ve kirli sakal bu karakterde uzar"
+    
+    Tooltip_RequireRazor = "Traþ Býçaðý Gerekiyor"
+    Tooltip_NoBodyHair = "Týraþ edilecek vücut kýlý yok"
+    
+    Tooltip_item_AppearanceChanger = "Bu Spiffo'yu tutmak size görünüþünüzü deðiþtirme yeteneði verir. Bilgi panelinizi kontrol edin"
+    Tooltip_item_AppearanceUnlocker = "Bu ayýyý tutmak, yönetici kilitli özelleþtirme seçeneklerine eriþmenizi saðlar."
+}

@@ -1,0 +1,4 @@
+ItemName_TR = {
+    ItemName_Spongie.AppearanceChanger = "Görünüm Deðiþtirme Eþyasý: Spiffo",
+    ItemName_Spongie.AppearanceUnlocker = "Görünüm Açma Eþyasý: Ayý",
+}
