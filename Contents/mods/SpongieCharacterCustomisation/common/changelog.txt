@@ -47,5 +47,6 @@ Features:
 - Fixed missing eye having wrong texture
 [ ------ ]
 [ VERSION 4 ]
+- Updated to B42.13.1
 - B42 MP Support
 [ ------ ]
