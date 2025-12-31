@@ -48,6 +48,7 @@ function IS_ShaveBodyHair:complete()
 	local FaceManager_Server = require("CharacterCustomisation/FaceManager_Server")
 	FaceManager_Server.RemovePlayerBodyHair(self.character, true)
 	FaceManager_Server.SyncRemoveCustomisation(self.character)
+	FaceManager_Server.OnClothingUpdated(self.character)
 	
 	sendServerCommand(self.character, "SPNCC", "OnClothingUpdated", {})
 	return true

@@ -60,7 +60,9 @@ function BodyDetailAvatar:applyVisual(selectedFace)
 	-- ADD THE ITEM TO THE PREVIEW
 	if self.visualItem and self.visualItem.id ~= "" then
 		item = instanceItem(self.visualItem.id)
-		if item ~= nil then
+		if not item then
+			print("item " .. self.visualItem.id .. " could not be spawned")
+		else
 			FaceManager_Shared.SetItemTexture(item, self.visualItem.texture)
 			visual:setWornItem(item:getBodyLocation(), item)
 		end
@@ -70,9 +72,10 @@ function BodyDetailAvatar:applyVisual(selectedFace)
 	self:setSurvivorDesc(self.desc)
 
 	--NOW WE RESET THE PREVIEW BACK TO DEFAULT!!!!!
+	if item then
+		wornItems:remove(item)
+	end
 
-	wornItems:remove(item)
-	
 	--need to have the original face added back as well
 	if selectedFace and selectedFace.bodylocation then
 		visual:setWornItem(selectedFace.bodylocation, face)

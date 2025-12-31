@@ -19,12 +19,11 @@ local function SyncBloodOnClothingUpdated(player)
 	local item = FaceManager_Shared.GetFirstWornItemWithTag(player, SPNCC.ItemTag.CanHaveBlood)
 	if not item then return end
 	
-	local playerVisual = player:getHumanVisual()
     -- if FaceManager_Shared.AddBloodAndDirtToItem(item:getVisual(), playerVisual) then
 		
-		sendClientCommand(player, "SPNCC", "SyncBlood", { })
+	sendClientCommand(player, "SPNCC", "SyncBlood", { })
 
-		BloodWasJustSynced = true
+	BloodWasJustSynced = true
     -- end
 end
 

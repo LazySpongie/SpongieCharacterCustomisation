@@ -132,13 +132,9 @@ function FaceManager_Server.SyncBlood(player)
 
 	local playerVisual = player:getVisual()
 
-	-- this isnt optimised but no matter what i do it just doesnt work in multiplayer
 	for i, item in ipairs(itemsWithBlood) do
 		FaceManager_Shared.AddBloodAndDirtToItem(item:getVisual(), playerVisual)
 		item:synchWithVisual()
-		-- item:setBloodLevel(0)
-		-- item:setDirtyness(0)
-		-- item:syncItemFields()
 	end
 	FaceManager_Server.OnClothingUpdated(player)
 end
@@ -365,9 +361,12 @@ function FaceManager_Server.RemoveItem(player, item)
 end
 
 function FaceManager_Server.OnClothingUpdated(player)
-	triggerEvent("OnClothingUpdated", player)
-	player:resetModel()
-	sendServerCommand(player, "SPNCC", "OnClothingUpdated", {})
+	if isServer() then
+		sendServerCommand(player, "SPNCC", "OnClothingUpdated", {})
+	else
+		triggerEvent("OnClothingUpdated", player)
+		player:resetModel()
+	end
 end
 
 function FaceManager_Server.SyncRemoveCustomisation(player)
