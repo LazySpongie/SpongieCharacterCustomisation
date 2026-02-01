@@ -3,31 +3,31 @@
 CharacterCreationMain.spn_character_customisation_saved = "spncharcustom_saved_outfits.txt";
 
 
-local OUTFIT_CHARACTER_CUSTOMISATION_FILE_VERSION = 1;
+local OUTFIT_SPNCC_FILE_VERSION = 1;
 
 function CharacterCreationMain.readCharacterCustomisationSaveFile()
     local retVal = {};
-    local saveFile = getFileReader(CharacterCreationMain.spn_character_customisation_saved, true);
-    local version = 0;
-    local line = saveFile:readLine();
-    while line ~= nil do
-        if luautils.stringStarts(line, "VERSION=") then
----@diagnostic disable-next-line: cast-local-type, undefined-field
-            version = tonumber(string.split(line, "=")[2])
-        elseif version == OUTFIT_CHARACTER_CUSTOMISATION_FILE_VERSION then
-            local s = luautils.split(line, ":");
-            retVal[s[1]] = s[2];
-        end
-        line = saveFile:readLine();
-    end
-    saveFile:close();
-
-    return retVal;
+    local saveFile = getFileReader(CharacterCreationMain.spn_character_customisation_saved, false);
+	if saveFile then
+		local version = 0
+		local line = saveFile:readLine();
+		while line ~= nil do
+			if luautils.stringStarts(line, "VERSION=") then
+				version = tonumber(string.split(line, "=")[2])
+			elseif version == tostring(OUTFIT_SPNCC_FILE_VERSION) then
+				local s = luautils.split(line, ":");
+				retVal[s[1]] = s[2];
+			end
+			line = saveFile:readLine();
+		end
+		saveFile:close();
+	end
+	return retVal;
 end
 
 function CharacterCreationMain.writeCharacterCustomisationSaveFile(options)
     local saveFile = getFileWriter(CharacterCreationMain.spn_character_customisation_saved, true, false); -- overwrite
-    saveFile:write("VERSION="..tostring(OUTFIT_CHARACTER_CUSTOMISATION_FILE_VERSION).."\n")
+    saveFile:write("VERSION="..tostring(OUTFIT_SPNCC_FILE_VERSION).."\n")
     for key,val in pairs(options) do
         saveFile:write(key..":"..val.."\n");
     end
@@ -48,6 +48,9 @@ function CharacterCreationMain:loadOutfit(box)
 	self.characterCustomisationPanel:clearSelectedBodyDetails()
 
     local saved_builds = CharacterCreationMain.readCharacterCustomisationSaveFile();
+
+	if not saved_builds then return end
+
     local build = saved_builds[name]
 	
 	--if the save doesnt have character customisation save data then we need to clear the body details

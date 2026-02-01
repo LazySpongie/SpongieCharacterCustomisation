@@ -32,7 +32,7 @@ local function OnPlayerJoin()
 	--singleplayer only
 	if isClient() or isServer() then return end
 	local data = player:getModData().SPNCharCustom
-	if data and data.hasCustomised then return end
+	if data and not data.hasCustomised then return end
 	local FaceManager_Shared = require("CharacterCustomisation/FaceManager_Shared")
 	FaceManager_Shared.OpenCharacterCustomisationWindow(player, true)
 end

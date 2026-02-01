@@ -42,25 +42,17 @@ function FaceManager_Shared.SyncBloodOnNewItem(player, item)
 	-- item:syncItemFields()
 end
 
-function FaceManager_Shared.AddBloodAndDirtToBodyPart(item1, item2, part)
-	local conditionChanged = false
-	-- blood
-	local item1Blood = item1:getBlood(part)
-	local item2Blood = item2:getBlood(part)
-	if item1Blood ~= item2Blood then
-		item1:setBlood(part, item2Blood)
-		conditionChanged = true
-	end
-	-- print(part)
-	-- print(tostring(item1Blood) .. " | " .. tostring(item2Blood))
-	-- print(tostring(item1:getBlood(part)) .. " | " .. tostring(item2:getBlood(part)))
+function FaceManager_Shared.CompareBodyPartBlood(item1, item2, part)
+	local blood = item1:getBlood(part) == item2:getBlood(part)
+	local dirt = item1:getDirt(part) == item2:getDirt(part)
+	return blood or dirt
+end
 
-	-- dirt
-	local item1Dirt = item1:getDirt(part)
-	local item2Dirt = item2:getDirt(part)
-	if item1Dirt ~= item2Dirt then
-		item1:setDirt(part, item2Dirt)
-		conditionChanged = true
+function FaceManager_Shared.AddBloodAndDirtToBodyPart(item1, item2, part)
+	local conditionChanged = FaceManager_Shared.CompareBodyPartBlood(item1, item2, part)
+	if conditionChanged then
+		item1:setBlood(part, item2:getBlood(part))
+		item1:setDirt(part, item2:getDirt(part))
 	end
 	return conditionChanged
 end
@@ -70,6 +62,15 @@ function FaceManager_Shared.AddBloodAndDirtToItem(item1, item2)
 	for i=1,BloodBodyPartType.MAX:index() do
 		local part = BloodBodyPartType.FromIndex(i-1)
 		if FaceManager_Shared.AddBloodAndDirtToBodyPart(item1, item2, part) then conditionChanged = true end
+	end
+	return conditionChanged
+end
+
+function FaceManager_Shared.CompareItemBlood(item1, item2)
+	local conditionChanged = false
+	for i=1,BloodBodyPartType.MAX:index() do
+		local part = BloodBodyPartType.FromIndex(i-1)
+		if FaceManager_Shared.CompareBodyPartBlood(item1, item2, part) then conditionChanged = true end
 	end
 	return conditionChanged
 end

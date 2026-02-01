@@ -49,8 +49,6 @@ function IS_ShaveBodyHair:complete()
 	FaceManager_Server.RemovePlayerBodyHair(self.character, true)
 	FaceManager_Server.SyncRemoveCustomisation(self.character)
 	FaceManager_Server.OnClothingUpdated(self.character)
-	
-	sendServerCommand(self.character, "SPNCC", "OnClothingUpdated", {})
 	return true
 end
 

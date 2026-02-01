@@ -129,11 +129,8 @@ function FaceManager_Server.SyncBlood(player)
 	local itemsWithBlood = FaceManager_Shared.GetWornItemsWithTag(player, SPNCC.ItemTag.CanHaveBlood)
 	if #itemsWithBlood == 0 then return end
 	
-
-	local playerVisual = player:getVisual()
-
 	for i, item in ipairs(itemsWithBlood) do
-		FaceManager_Shared.AddBloodAndDirtToItem(item:getVisual(), playerVisual)
+		FaceManager_Shared.AddBloodAndDirtToItem(item:getVisual(), player:getVisual())
 		item:synchWithVisual()
 	end
 	FaceManager_Server.OnClothingUpdated(player)
@@ -199,12 +196,6 @@ function FaceManager_Server.SetCustomisationNewCharacter(player, clientData)
 	data.muscleVisuals = clientData.muscleVisuals
 	data.bodyHairGrowthEnabled = clientData.bodyHairGrowth
 
-    data.GrowTimer = {
-		stubbleHead = SandboxVars.SPNCharCustom.StubbleHeadGrowth *24,
-		stubbleBeard = SandboxVars.SPNCharCustom.StubbleBeardGrowth *24,
-		bodyHair = SandboxVars.SPNCharCustom.BodyHairGrowth *24,
-	}
-
 	FaceManager_Server.RefreshCustomisation(player)
 
 	sendServerCommand(player, "SPNCC", "SetPlayerModData", {data = data})
@@ -240,7 +231,7 @@ end
 
 function FaceManager_Server.OnPlayerJoin(player)
 	local data = player:getModData().SPNCharCustom
-	local isNewCharacter = (data == nil) or (not data.hasCustomised) 
+	local isNewCharacter = (not data) or (not data.hasCustomised) 
 	
 	if not isNewCharacter then
 		print("Existing character")

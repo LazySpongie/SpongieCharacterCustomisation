@@ -40,11 +40,3 @@ function ISWashYourself:complete()
 	return true
 end
 
--- function ISWashYourself:perform()
--- 	self:stopSound()
--- 	self.character:resetModelNextFrame();
--- 	triggerEvent("OnClothingUpdated", self.character)
--- 	-- needed to remove from queue / start next.
--- 	ISBaseTimedAction.perform(self);
--- end
-

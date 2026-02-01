@@ -7,24 +7,23 @@
 
 local FaceManager_Shared = require("CharacterCustomisation/FaceManager_Shared")
 
-local BloodWasJustSynced = false
+-- local BloodWasJustSynced = false
 local function SyncBloodOnClothingUpdated(player)
 
 	-- need to avoid an infinite loop
-	if BloodWasJustSynced then
-		BloodWasJustSynced = false
-		return
-	end
+	-- if BloodWasJustSynced then
+	-- 	BloodWasJustSynced = false
+	-- 	return
+	-- end
 
 	local item = FaceManager_Shared.GetFirstWornItemWithTag(player, SPNCC.ItemTag.CanHaveBlood)
 	if not item then return end
 	
-    -- if FaceManager_Shared.AddBloodAndDirtToItem(item:getVisual(), playerVisual) then
+	if not FaceManager_Shared.CompareItemBlood(item:getVisual(), player:getVisual()) then return end
 		
 	sendClientCommand(player, "SPNCC", "SyncBlood", { })
 
-	BloodWasJustSynced = true
-    -- end
+	-- BloodWasJustSynced = true
 end
 
 	-- ----------------------

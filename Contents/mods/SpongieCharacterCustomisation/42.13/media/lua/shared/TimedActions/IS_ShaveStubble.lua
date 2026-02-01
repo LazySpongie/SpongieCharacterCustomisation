@@ -50,8 +50,6 @@ function IS_ShaveStubble:complete()
 	FaceManager_Server.SyncRemoveCustomisation(self.character)
 	FaceManager_Server.OnClothingUpdated(self.character)
 
-	sendServerCommand(self.character, "SPNCC", "OnClothingUpdated", {})
-
 	if self.isBeard then
 		if self.character:getHumanVisual():getBeardModel() == "" then
 			self.character:resetBeardGrowingTime()
