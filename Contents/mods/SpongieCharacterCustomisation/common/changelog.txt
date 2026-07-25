@@ -50,3 +50,7 @@ Features:
 - Updated to B42.13.1
 - B42 MP Support
 [ ------ ]
+[ VERSION 5 ]
+- Updated to B42.20 Stable
+- Updated to B42.20 Stable
+[ ------ ]

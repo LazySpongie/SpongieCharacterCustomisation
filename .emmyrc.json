@@ -4,7 +4,6 @@
         "enableReindex": false,
         "encoding": "utf-8",
         "ignoreDir": [
-            "Contents/mods/SpongieCharacterCustomisation/42.0",
             "Contents/mods/SpongieCharacterCustomisation/media"
         ],
         "ignoreGlobs": [],
@@ -15,7 +14,7 @@
         "preloadFileSize": 0,
         "reindexDuration": 5000,
         "workspaceRoots": [
-            "Contents/mods/SpongieCharacterCustomisation/42.13/media/lua"
+            "Contents/mods/SpongieCharacterCustomisation/42.19/media/lua"
         ]
     },
     "runtime": {
@@ -24,9 +23,7 @@
         "nonstandardSymbol": [],
         "requireLikeFunction": [],
         "requirePattern": [
-            "Contents/mods/SpongieCharacterCustomisation/42.13/media/lua/shared/?.lua",
-            "Contents/mods/SpongieCharacterCustomisation/42.13/media/lua/client/?.lua",
-            "Contents/mods/SpongieCharacterCustomisation/42.13/media/lua/server/?.lua"
+            "Contents/mods/SpongieCharacterCustomisation/42.19/media/lua/?.lua"
         ],
         "special": {},
         "version": "Lua5.1"
