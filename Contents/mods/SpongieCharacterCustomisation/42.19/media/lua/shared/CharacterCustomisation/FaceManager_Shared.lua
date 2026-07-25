@@ -5,9 +5,22 @@
 
 local FaceManager_Shared = {}
 
+local IG_SyncBlood
 	-- -----------------------------------------
 	-- -- UTILITY
 	-- -----------------------------------------
+
+function FaceManager_Shared.OnClothingUpdated(player)
+	triggerEvent("OnClothingUpdated", player)
+	player:resetModel()
+end
+
+function FaceManager_Shared.SyncBloodReturn(player)
+	IG_SyncBlood = IG_SyncBlood or require("CharacterCustomisation/Ingame/IG_SyncBlood")
+
+	IG_SyncBlood.
+	FaceManager_Shared.OnClothingUpdated(player)
+end
 
 function FaceManager_Shared.CreateItem(type, texture)
 

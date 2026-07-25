@@ -8,6 +8,9 @@ local function OnNewCharacter()
 	OnNewCharacterTimer = OnNewCharacterTimer - 1
 	if OnNewCharacterTimer > 0 then return end
 	Events.OnPlayerUpdate.Remove(OnNewCharacter)
+
+	print("SPNCC : OnNewCharacter")
+
 	local clientData = require("CharacterCustomisation/CharacterCreation/StoredCharacterData")	--data we stored during character creation
 	sendClientCommand(getPlayer(), "SPNCC", "SetCustomisationNewCharacter", { data = clientData})
 end
@@ -26,19 +29,24 @@ local function OnPlayerJoin()
 	if OnPlayerJoinTimer > 0 then return end
 	Events.OnPlayerUpdate.Remove(OnPlayerJoin)
 
-	local player = getPlayer()
-	sendClientCommand(player, "SPNCC", "OnPlayerJoin", { })
+	print("SPNCC : OnPlayerJoin")
 
-	--singleplayer only
-	if isClient() or isServer() then return end
-	local data = player:getModData().SPNCharCustom
-	if data and not data.hasCustomised then return end
-	local FaceManager_Shared = require("CharacterCustomisation/FaceManager_Shared")
-	FaceManager_Shared.OpenCharacterCustomisationWindow(player, true)
+	local player = getPlayer()
+
+	--singleplayer
+	if not isClient() and not isServer() then 
+		local FaceManager_Server = require("CharacterCustomisation/FaceManager_Server")
+		FaceManager_Server.OnPlayerJoin(player)
+		-- local data = player:getModData().SPNCharCustom
+		-- if data and not data.hasCustomised then return end
+		-- local FaceManager_Shared = require("CharacterCustomisation/FaceManager_Shared")
+		-- FaceManager_Shared.OpenCharacterCustomisationWindow(player, true)
+	else
+		sendClientCommand(player, "SPNCC", "OnPlayerJoin", { })
+	end
 end
 
 local function onCreatePlayer(playerNum, player)
-	print("onCreatePlayer")
 	OnPlayerJoinTimer = 6
 	Events.OnPlayerUpdate.Add(OnPlayerJoin)
 end

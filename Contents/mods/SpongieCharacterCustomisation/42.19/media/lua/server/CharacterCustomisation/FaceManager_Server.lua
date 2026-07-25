@@ -126,6 +126,7 @@ function FaceManager_Server.RemovePlayerMuscle(player)
 end
 
 function FaceManager_Server.SyncBlood(player)
+	-- print("SPNCC : FaceManager_Server.SyncBlood")
 	local itemsWithBlood = FaceManager_Shared.GetWornItemsWithTag(player, SPNCC.ItemTag.CanHaveBlood)
 	if #itemsWithBlood == 0 then return end
 	
@@ -133,7 +134,14 @@ function FaceManager_Server.SyncBlood(player)
 		FaceManager_Shared.AddBloodAndDirtToItem(item:getVisual(), player:getVisual())
 		item:synchWithVisual()
 	end
-	FaceManager_Server.OnClothingUpdated(player)
+
+	-- print("SPNCC : FaceManager_Server blood synced")
+	
+	if isServer() then
+		sendServerCommand(player, "SPNCC", "OnClothingUpdated", {})
+	else
+		FaceManager_Shared.OnClothingUpdated(player)
+	end
 end
 
 
@@ -272,9 +280,13 @@ function FaceManager_Server.OnPlayerJoin(player)
 	FaceManager_Server.RefreshCustomisation(player)
 	
 	-- Only runs in multiplayer
-	sendServerCommand(player, "SPNCC", "SetPlayerModData", {data = data})
-	if isNewCharacter then
-		sendServerCommand(player, "SPNCC", "OpenCharacterCustomisationWindow", {})
+	if isServer() then
+		sendServerCommand(player, "SPNCC", "SetPlayerModData", {data = data})
+		if isNewCharacter then
+			sendServerCommand(player, "SPNCC", "OpenCharacterCustomisationWindow", {})
+		end
+	elseif isNewCharacter then
+		FaceManager_Shared.OpenCharacterCustomisationWindow(player, true)
 	end
 end
 
@@ -355,8 +367,7 @@ function FaceManager_Server.OnClothingUpdated(player)
 	if isServer() then
 		sendServerCommand(player, "SPNCC", "OnClothingUpdated", {})
 	else
-		triggerEvent("OnClothingUpdated", player)
-		player:resetModel()
+		FaceManager_Shared.OnClothingUpdated(player)
 	end
 end
 

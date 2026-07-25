@@ -6,6 +6,8 @@ local Commands = {}
 	-- COMMANDS
 	-------------------------------------
 
+local FaceManager_Shared = require("CharacterCustomisation/FaceManager_Shared")
+
 function Commands.SetPlayerModData(args)
 	local player = getPlayer()
 	player:getModData().SPNCharCustom = args.data
@@ -24,14 +26,14 @@ function Commands.SetPlayerModDataValues(args)
 end
 
 function Commands.OpenCharacterCustomisationWindow(args)
-	local FaceManager_Shared = require("CharacterCustomisation/FaceManager_Shared")
 	FaceManager_Shared.OpenCharacterCustomisationWindow(getPlayer(), true)
 end
 
 function Commands.OnClothingUpdated(args)
-	local player = getPlayer()
-	triggerEvent("OnClothingUpdated", player)
-	player:resetModel()
+	FaceManager_Shared.OnClothingUpdated(getPlayer())
+end
+function Commands.SyncBloodReturn(args)
+	FaceManager_Shared.SyncBloodReturn(getPlayer())
 end
 
 	-------------------------------------

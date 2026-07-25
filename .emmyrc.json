@@ -3,9 +3,7 @@
     "workspace": {
         "enableReindex": false,
         "encoding": "utf-8",
-        "ignoreDir": [
-            "Contents/mods/SpongieCharacterCustomisation/media"
-        ],
+        "ignoreDir": [],
         "ignoreGlobs": [],
         "library": [
             "$PZ_UMBRELLA"
@@ -23,7 +21,6 @@
         "nonstandardSymbol": [],
         "requireLikeFunction": [],
         "requirePattern": [
-            "Contents/mods/SpongieCharacterCustomisation/42.19/media/lua/?.lua"
         ],
         "special": {},
         "version": "Lua5.1"
