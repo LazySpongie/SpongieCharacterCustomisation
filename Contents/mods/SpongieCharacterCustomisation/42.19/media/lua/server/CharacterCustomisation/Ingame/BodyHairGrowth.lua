@@ -1,4 +1,13 @@
 
+
+	-- --------------------------------------------
+	-- -- GROW BODY HAIR ON EACH PLAYER EVERY HOUR
+	-- --------------------------------------------
+
+
+
+if isClient() then return end
+
 local FaceManager_Server = require("CharacterCustomisation/FaceManager_Server")
 
 local function doBodyHair(player, data)
@@ -53,7 +62,7 @@ local function GrowPlayerBodyHair(player)
 	doBeardStubble(player, data)
 end
 
---here we grow the body hair each day
+
 local function EveryHours()
 	if isClient() then return end
 	

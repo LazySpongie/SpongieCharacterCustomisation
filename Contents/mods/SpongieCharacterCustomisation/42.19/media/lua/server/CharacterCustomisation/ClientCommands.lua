@@ -1,4 +1,10 @@
 
+	-- --------------------------------------------------
+	-- -- COMMANDS SEND BY A CLIENT TO THE SERVER
+	-- --------------------------------------------------
+
+if isClient() then return end
+
 local FaceManager_Server = require("CharacterCustomisation/FaceManager_Server")
 
 local Commands = {}

@@ -1,5 +1,8 @@
 
---	when a players strength skill changes we set their muscle
+	-- ---------------------------------------------------------------------------
+	-- -- WHEN THE STRENGTH SKILL CHANGES TELL THE SERVER TO UPDATE MUSCLES
+	-- ---------------------------------------------------------------------------
+
 local function onLevelPerk(player, perk, level)
 	if perk:getType() ~= Perks.Strength:getType() then return end
 	

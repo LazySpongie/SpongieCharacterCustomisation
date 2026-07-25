@@ -31,9 +31,7 @@ function ISWashYourself:complete()
 		end
 	end	
 
-	-- have to add this so that blood on faces is updated
-	-- triggerEvent("OnClothingUpdated", self.character)
-	
+	-- update blood on face/muscle
 	local FaceManager_Server = require("CharacterCustomisation/FaceManager_Server")
 	FaceManager_Server.SyncBlood(self.character)
 

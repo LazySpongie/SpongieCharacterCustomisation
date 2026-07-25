@@ -1,8 +1,9 @@
 
 	-- ----------------------------------------------------------------------
-	-- -- Methods for the server to add and remove customisation items
+	-- -- METHODS FOR THE SERVER TO MANAGE DATA AND CUSTOMISATION ITEMS
 	-- ----------------------------------------------------------------------
-
+	
+if isClient() then return end
 
 local FaceManager_Shared = require("CharacterCustomisation/FaceManager_Shared")
 local SPNCC_Data = require("CharacterCustomisation/SPNCC_Data")
@@ -10,6 +11,12 @@ local SPNCC_Data = require("CharacterCustomisation/SPNCC_Data")
 local FaceManager_Server = {}
 
 FaceManager_Server.modversion = 2
+
+
+
+
+
+
 
 	-- -------------------------------------
 	-- -- MANAGE CUSTOMISATION ITEMS IN-GAME
@@ -125,13 +132,20 @@ function FaceManager_Server.RemovePlayerMuscle(player)
 	FaceManager_Server.RemoveItemAtBodyLocation(player, SPNCC.ItemBodyLocation.Muscle)
 end
 
+
+
+	-- -------------------------------------
+	-- -- Blood Syncing
+	-- -------------------------------------
+
+
 function FaceManager_Server.SyncBlood(player)
 	-- print("SPNCC : FaceManager_Server.SyncBlood")
 	local itemsWithBlood = FaceManager_Shared.GetWornItemsWithTag(player, SPNCC.ItemTag.CanHaveBlood)
 	if #itemsWithBlood == 0 then return end
 	
 	for i, item in ipairs(itemsWithBlood) do
-		FaceManager_Shared.AddBloodAndDirtToItem(item:getVisual(), player:getVisual())
+		FaceManager_Server.AddBloodAndDirtToItem(item:getVisual(), player:getVisual())
 		item:synchWithVisual()
 	end
 
@@ -143,6 +157,53 @@ function FaceManager_Server.SyncBlood(player)
 		FaceManager_Shared.OnClothingUpdated(player)
 	end
 end
+
+function FaceManager_Server.SyncBloodOnNewItem(player, item)
+	if not item:hasTag(SPNCC.ItemTag.CanHaveBlood) then return false end
+	FaceManager_Server.AddBloodAndDirtToItem(item:getVisual(), player:getVisual())
+	item:synchWithVisual()
+	-- item:setBloodLevel(0)
+	-- item:setDirtyness(0)
+	-- item:syncItemFields()
+end
+
+function FaceManager_Server.CompareBodyPartBlood(item1, item2, part)
+	local blood = item1:getBlood(part) == item2:getBlood(part)
+	local dirt = item1:getDirt(part) == item2:getDirt(part)
+	return blood or dirt
+end
+
+function FaceManager_Server.AddBloodAndDirtToBodyPart(item1, item2, part)
+	local conditionChanged = FaceManager_Server.CompareBodyPartBlood(item1, item2, part)
+	if conditionChanged then
+		item1:setBlood(part, item2:getBlood(part))
+		item1:setDirt(part, item2:getDirt(part))
+	end
+	return conditionChanged
+end
+
+function FaceManager_Server.AddBloodAndDirtToItem(item1, item2)
+	local conditionChanged = false
+	for i=1,BloodBodyPartType.MAX:index() do
+		local part = BloodBodyPartType.FromIndex(i-1)
+		if FaceManager_Server.AddBloodAndDirtToBodyPart(item1, item2, part) then conditionChanged = true end
+	end
+	return conditionChanged
+end
+
+function FaceManager_Server.CompareItemBlood(item1, item2)
+	local conditionChanged = false
+	for i=1,BloodBodyPartType.MAX:index() do
+		local part = BloodBodyPartType.FromIndex(i-1)
+		if FaceManager_Server.CompareBodyPartBlood(item1, item2, part) then conditionChanged = true end
+	end
+	return conditionChanged
+end
+
+
+
+
+
 
 
 	-- -------------------------------------
@@ -291,16 +352,10 @@ function FaceManager_Server.OnPlayerJoin(player)
 end
 
 function FaceManager_Server.ConvertData(player, data)
-	if data.version == 1 then
-		--convert stubble growth from days to hours
-		local growTimer = data.GrowTimer
-		growTimer.stubbleHead = growTimer.stubbleHead *24
-		growTimer.stubbleBeard = growTimer.stubbleBeard *24
-		growTimer.bodyHair = growTimer.bodyHair *24
-
-		data.version = FaceManager_Server.modversion
-		print("Player " .. player:getFullName() .. " SPNCharCustom moddata converted from version 1 to " .. tostring(FaceManager_Server.modversion))
-	end
+	-- if data.version == 1 then
+	-- 	-- convert body hair growth days to hours
+	-- 	-- print("Player " .. player:getFullName() .. " SPNCharCustom moddata converted from version 1 to " .. tostring(FaceManager_Server.modversion))
+	-- end
 end
 
 --adjust players moddata just in case the server settings were changed 
@@ -340,7 +395,7 @@ function FaceManager_Server.AddItem(player, id, texture)
 	local item = FaceManager_Shared.CreateItem(id, texture)
 	if not item then return end
 
-	FaceManager_Shared.SyncBloodOnNewItem(player, item)
+	FaceManager_Server.SyncBloodOnNewItem(player, item)
 
 	player:getInventory():AddItem(item)
 	sendAddItemToContainer(player:getInventory(), item)

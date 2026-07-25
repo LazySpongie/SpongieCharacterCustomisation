@@ -14,7 +14,7 @@ function CharacterCreationMain.readCharacterCustomisationSaveFile()
 		while line ~= nil do
 			if luautils.stringStarts(line, "VERSION=") then
 				version = tonumber(string.split(line, "=")[2])
-			elseif version == tostring(OUTFIT_SPNCC_FILE_VERSION) then
+			else
 				local s = luautils.split(line, ":");
 				retVal[s[1]] = s[2];
 			end
@@ -48,13 +48,11 @@ function CharacterCreationMain:loadOutfit(box)
 	self.characterCustomisationPanel:clearSelectedBodyDetails()
 
     local saved_builds = CharacterCreationMain.readCharacterCustomisationSaveFile();
-
 	if not saved_builds then return end
-
     local build = saved_builds[name]
 	
-	--if the save doesnt have character customisation save data then we need to clear the body details
     if build then
+		
 		local items = luautils.split(build, ";");
 		for i,v in pairs(items) do
 			local location = luautils.split(v, "=");

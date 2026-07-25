@@ -1,4 +1,11 @@
 
+	-- -------------------------------------------------------------------------------------------------
+	-- -- ADDS THE BUTTONS FOR SHAVING AND OPENING THE CHARACTER CUSTOMISATION MENU TO THE INFO SCREEN
+	-- -------------------------------------------------------------------------------------------------
+
+
+
+
 local shaveAction = require("TimedActions/IS_ShaveStubble")
 local bodyHairAction = require("TimedActions/IS_ShaveBodyHair")
 

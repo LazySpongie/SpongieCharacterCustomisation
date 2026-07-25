@@ -32,9 +32,7 @@ end
 function Commands.OnClothingUpdated(args)
 	FaceManager_Shared.OnClothingUpdated(getPlayer())
 end
-function Commands.SyncBloodReturn(args)
-	FaceManager_Shared.SyncBloodReturn(getPlayer())
-end
+
 
 	-------------------------------------
 	-- SETUP

@@ -1,11 +1,10 @@
 
 	-- ----------------------------------------------------------------------
-	-- -- functions for adding and removing customisation items ingame
+	-- -- METHODS THAT NEED TO BE USED BY THE SERVER AND THE CLIENT
 	-- ----------------------------------------------------------------------
 
 local FaceManager_Shared = {}
 
-local IG_SyncBlood
 	-- -----------------------------------------
 	-- -- UTILITY
 	-- -----------------------------------------
@@ -13,13 +12,6 @@ local IG_SyncBlood
 function FaceManager_Shared.OnClothingUpdated(player)
 	triggerEvent("OnClothingUpdated", player)
 	player:resetModel()
-end
-
-function FaceManager_Shared.SyncBloodReturn(player)
-	IG_SyncBlood = IG_SyncBlood or require("CharacterCustomisation/Ingame/IG_SyncBlood")
-
-	IG_SyncBlood.
-	FaceManager_Shared.OnClothingUpdated(player)
 end
 
 function FaceManager_Shared.CreateItem(type, texture)
@@ -45,49 +37,6 @@ function FaceManager_Shared.GetMuscleLevel(level)
 	if level <= 10 then return 	2 end
 	return 0
 end
-
-function FaceManager_Shared.SyncBloodOnNewItem(player, item)
-	if not item:hasTag(SPNCC.ItemTag.CanHaveBlood) then return false end
-	FaceManager_Shared.AddBloodAndDirtToItem(item:getVisual(), player:getVisual())
-	item:synchWithVisual()
-	-- item:setBloodLevel(0)
-	-- item:setDirtyness(0)
-	-- item:syncItemFields()
-end
-
-function FaceManager_Shared.CompareBodyPartBlood(item1, item2, part)
-	local blood = item1:getBlood(part) == item2:getBlood(part)
-	local dirt = item1:getDirt(part) == item2:getDirt(part)
-	return blood or dirt
-end
-
-function FaceManager_Shared.AddBloodAndDirtToBodyPart(item1, item2, part)
-	local conditionChanged = FaceManager_Shared.CompareBodyPartBlood(item1, item2, part)
-	if conditionChanged then
-		item1:setBlood(part, item2:getBlood(part))
-		item1:setDirt(part, item2:getDirt(part))
-	end
-	return conditionChanged
-end
-
-function FaceManager_Shared.AddBloodAndDirtToItem(item1, item2)
-	local conditionChanged = false
-	for i=1,BloodBodyPartType.MAX:index() do
-		local part = BloodBodyPartType.FromIndex(i-1)
-		if FaceManager_Shared.AddBloodAndDirtToBodyPart(item1, item2, part) then conditionChanged = true end
-	end
-	return conditionChanged
-end
-
-function FaceManager_Shared.CompareItemBlood(item1, item2)
-	local conditionChanged = false
-	for i=1,BloodBodyPartType.MAX:index() do
-		local part = BloodBodyPartType.FromIndex(i-1)
-		if FaceManager_Shared.CompareBodyPartBlood(item1, item2, part) then conditionChanged = true end
-	end
-	return conditionChanged
-end
-
 
 
 function FaceManager_Shared.OpenCharacterCustomisationWindow(player, hideCancelButton)
