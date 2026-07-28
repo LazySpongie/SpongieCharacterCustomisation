@@ -67,16 +67,20 @@ end
 	-- -- GETTERS
 	-- -----------------------------------------
 function FaceManager_Shared.GetWornPlayerFace(player)
-    for i=0, player:getWornItems():size()-1 do
-        local item = player:getWornItems():getItemByIndex(i)
+	local wornitems = player:getWornItems()
+	if not wornitems then return end
+    for i=0, wornitems:size()-1 do
+        local item = wornitems:getItemByIndex(i)
         if item:hasTag(SPNCC.ItemTag.Face) then return item end
     end
     return nil
 end
 function FaceManager_Shared.GetWornItemsWithTag(player, tag)
+	local wornitems = player:getWornItems()
+	if not wornitems then return end
 	local items = {}
-    for i=0, player:getWornItems():size()-1 do
-        local item = player:getWornItems():getItemByIndex(i)
+    for i=0, wornitems:size()-1 do
+        local item = wornitems:getItemByIndex(i)
         if item:hasTag(tag) then 
 			table.insert(items, item) 
 		end
@@ -84,8 +88,10 @@ function FaceManager_Shared.GetWornItemsWithTag(player, tag)
 	return items
 end
 function FaceManager_Shared.GetFirstWornItemWithTag(player, tag)
-    for i=0, player:getWornItems():size()-1 do
-        local item = player:getWornItems():getItemByIndex(i)
+	local wornitems = player:getWornItems()
+	if not wornitems then return end
+    for i=0, wornitems:size()-1 do
+        local item = wornitems:getItemByIndex(i)
         if item:hasTag(tag) then 
 			return item
 		end
@@ -95,8 +101,10 @@ function FaceManager_Shared.GetWornItem(player, bodylocation)
     return player:getWornItem(bodylocation)
 end
 function FaceManager_Shared.GetWornItemWithTag(player, tag)
-    for i=0, player:getWornItems():size()-1 do
-        local item = player:getWornItems():getItemByIndex(i)
+	local wornitems = player:getWornItems()
+	if not wornitems then return end
+    for i=0, wornitems:size()-1 do
+        local item = wornitems:getItemByIndex(i)
         if item:hasTag(tag) then return item end
     end
 	return nil

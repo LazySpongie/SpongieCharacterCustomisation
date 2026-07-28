@@ -15,7 +15,7 @@ local function doBodyHair(player, data)
 	
 	data.GrowTimer.bodyHair = data.GrowTimer.bodyHair - 1
 	
-	print("PRINTING BODY GROWTH: " .. tostring(data.GrowTimer.bodyHair))
+	-- print("PRINTING BODY GROWTH: " .. tostring(data.GrowTimer.bodyHair))
 
 	if data.GrowTimer.bodyHair <= 0 then
 		FaceManager_Server.AddPlayerBodyHair(player)

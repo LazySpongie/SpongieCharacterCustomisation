@@ -26,11 +26,12 @@ local LastPlayerCount = 0
 
 -- Check if a player has a customisation item that needs blood syncing
 local function CheckBlood(player)
+    print("Checking blood: " .. player:getFullName())
+
 	local item = FaceManager_Shared.GetFirstWornItemWithTag(player, SPNCC.ItemTag.CanHaveBlood)
 	if not item then return end
-	
 	-- check if blood needs syncing
-	if not FaceManager_Server.CompareItemBlood(item:getVisual(), player:getVisual()) then return end
+	if not FaceManager_Server.CompareItemBlood(item:getVisual(), player:getHumanVisual()) then return end
 	
     FaceManager_Server.SyncBlood(player)
 end
@@ -42,25 +43,28 @@ local function CheckPlayers(tick)
 	Timer = Timer - 1
 	if Timer > 0 then return end
 
-    local playerToCheck
+    print("CheckPlayers: " .. tick)
+
+    Delay = MaxDelay
+
+    local playerToCheck = nil
+
 	if not isServer() then
-        Delay = MaxDelay
 		playerToCheck = getPlayer()
     else
         local players = getOnlinePlayers()
         local size = players:size()
-        if not size == 0 then
+        if size > 0 then
             -- recalculate tick delay based on playercount
             if LastPlayerCount ~= size then
                 LastPlayerCount = size
-                
-                -- round up
                 Delay = math_ceil(MaxDelay/LastPlayerCount)
+                print("delay: " + Delay)
             end
 
-
-            if CurrentPlayerIndex > size-1 then CurrentPlayerIndex = 0 end
+            if CurrentPlayerIndex >= size then CurrentPlayerIndex = 0 end
             
+
             playerToCheck = players:get(CurrentPlayerIndex)
             -- may need to check if player is dead
 
@@ -68,10 +72,10 @@ local function CheckPlayers(tick)
         end
 	end
 
+    if not playerToCheck then return end
     CheckBlood(playerToCheck)
 
     Timer = Delay
-    print(tick)
 end
 
 Events.OnTick.Add(CheckPlayers)

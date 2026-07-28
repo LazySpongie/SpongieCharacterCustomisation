@@ -18,7 +18,7 @@ local function OnNewCharacter()
 	if OnNewCharacterTimer > 0 then return end
 	Events.OnPlayerUpdate.Remove(OnNewCharacter)
 
-	print("SPNCC : OnNewCharacter")
+	-- print("SPNCC : OnNewCharacter")
 
 	local clientData = require("CharacterCustomisation/CharacterCreation/StoredCharacterData")	--data we stored during character creation
 	if isSP() then
@@ -43,7 +43,7 @@ local function OnPlayerJoin()
 	if OnPlayerJoinTimer > 0 then return end
 	Events.OnPlayerUpdate.Remove(OnPlayerJoin)
 
-	print("SPNCC : OnPlayerJoin")
+	-- print("SPNCC : OnPlayerJoin")
 
 	local player = getPlayer()
 

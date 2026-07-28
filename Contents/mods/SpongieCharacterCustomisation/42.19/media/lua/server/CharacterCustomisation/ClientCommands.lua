@@ -48,10 +48,6 @@ function Commands.OnPlayerJoin(player, args)
 	FaceManager_Server.OnPlayerJoin(player)
 end
 
-function Commands.SyncBlood(player, args)
-	FaceManager_Server.SyncBlood(player)
-end
-
 
 
 	-- -------------------------------------
@@ -59,7 +55,7 @@ end
 	-- -------------------------------------
 local function OnClientCommand(module, command, player, args)
 	if module == "SPNCC" and Commands[command] then
-		print(command)
+		-- print("ClientCommand: " .. command)
 		Commands[command](player, args)
 	end
 end

@@ -31,15 +31,16 @@ end
 
 function Commands.OnClothingUpdated(args)
 	FaceManager_Shared.OnClothingUpdated(getPlayer())
+	-- triggerEvent("OnClothingUpdated", getPlayer())
+	-- getPlayer():resetModelNextFrame()
 end
 
 
 	-------------------------------------
-	-- SETUP
 	-------------------------------------
 local function onServerCommand(module, command, args)
 	if module == "SPNCC" and Commands[command] then
-		print(command)
+		-- print("ServerCommand: " .. command)
 		Commands[command](args)
 	end
 end
