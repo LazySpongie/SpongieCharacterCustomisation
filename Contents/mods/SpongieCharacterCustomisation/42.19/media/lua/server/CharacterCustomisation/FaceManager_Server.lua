@@ -140,12 +140,12 @@ end
 
 
 function FaceManager_Server.SyncBlood(player)
-	print("SPNCC : FaceManager_Server SyncBlood")
+	-- print("SPNCC : FaceManager_Server SyncBlood")
 	local itemsWithBlood = FaceManager_Shared.GetWornItemsWithTag(player, SPNCC.ItemTag.CanHaveBlood)
 	if #itemsWithBlood == 0 then return end
 	
 	for i, item in ipairs(itemsWithBlood) do
-		print(item)
+		-- print(item)
 		FaceManager_Server.SyncBloodOnItem(player, item)
 	end
 
@@ -301,11 +301,11 @@ function FaceManager_Server.OnPlayerJoin(player)
 	local isNewCharacter = (not data) or (not data.hasCustomised) 
 	
 	if not isNewCharacter then
-		print("Existing character")
+		-- print("SPNCC : CONNECTING PLAYER ALREADY HAS CUSTOMISATION")
 		FaceManager_Server.CheckData(player, data)
 		-- FaceManager_Server.RefreshCustomisation(player)
 	else
-		print("New character")
+		-- print("SPNCC : CONNECTING PLAYER DOES NOT HAVE CUSTOMISATION")
 		data = FaceManager_Server.CreatePlayerData(player)
 		
 		--we need to replace the vanilla chest hair and stubble
@@ -444,6 +444,7 @@ function FaceManager_Server.RemoveItems(player, items)
 	for i, item in pairs(items) do
 		FaceManager_Server.RemoveItem(player, item)
 	end
+	FaceManager_Server.SyncRemoveCustomisation(player)
 end
 function FaceManager_Server.RemoveItemsWithTag(player, tag)
 	local items = FaceManager_Shared.GetInventoryItemsWithTag(player, tag);

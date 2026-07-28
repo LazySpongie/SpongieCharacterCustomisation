@@ -11,7 +11,9 @@ local FaceManager_Server = require("CharacterCustomisation/FaceManager_Server")
 
 local function removeOnZombification(character)
 	if instanceof(character, "IsoPlayer") and not instanceof(character, "IsoAnimal") then 
+		-- print("SPNCC : PLAYER DEATH")
 		if character:getBodyDamage():IsInfected() == false then return end
+		-- print("SPNCC : PLAYER WAS INFECTED")
 		FaceManager_Server.RemoveItemsWithTag(character, SPNCC.ItemTag.RemoveOnZombification)
 	end
 end
