@@ -172,5 +172,5 @@ description=
 description=
 description=This mod is open source so you can do whatever you want with it.
 description=
-tags=Build 41;Build 42;Framework;Interface;Multiplayer;Realistic;Textures
+tags=Build 42;Framework;Interface;Multiplayer;Realistic;Textures
 visibility=public
