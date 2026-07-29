@@ -167,6 +167,18 @@ end
 
 function FaceManager_Server.SetCustomisationNewCharacter(player, clientData)
 	local data = FaceManager_Server.CreatePlayerData(player)
+	if not clientData then 
+		FaceManager_Server.CreatePlayerData(player)
+		FaceManager_Server.SetPlayerMuscle(player)
+		FaceManager_Server.RefreshCustomisation(player)
+		if isServer() then
+			sendServerCommand(player, "SPNCC", "SetPlayerModData", {data = data})
+			sendServerCommand(player, "SPNCC", "OpenCharacterCustomisationWindow", {})
+		else
+			FaceManager_Shared.OpenCharacterCustomisationWindow(player, true)
+		end
+		return
+	end
 
 	data.hasCustomised = true
 	data.face = clientData.face

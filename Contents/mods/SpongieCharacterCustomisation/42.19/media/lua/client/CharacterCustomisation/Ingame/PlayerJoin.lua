@@ -1,12 +1,11 @@
 
-	-- ---------------------------------------------------------------------------
-	-- -- WHEN A PLAYER CREATES A NEW CHARACTER OR JOINS AS AN EXISTING CHARACTER
-	-- ---------------------------------------------------------------------------
-
-local function isSP()
-	return not isClient() and not isServer()
+local function spn_getClientData()
+	local ok, data = pcall(require, "CharacterCustomisation/CharacterCreation/StoredCharacterData")
+	if ok and type(data) == "table" then
+		return data
+	end
+	return nil
 end
-
 
 	-- -----------------------------------------
 	-- -- SET UP MOD DATA AFTER CHARACTER CREATION
@@ -16,12 +15,13 @@ local OnNewCharacterTimer = 0
 local function OnNewCharacter()
 	OnNewCharacterTimer = OnNewCharacterTimer - 1
 	if OnNewCharacterTimer > 0 then return end
-	Events.OnTick.Remove(OnNewCharacter)
+	Events.OnPlayerUpdate.Remove(OnNewCharacter)
 
 	-- print("SPNCC : OnNewCharacter")
 
-	local clientData = require("CharacterCustomisation/CharacterCreation/StoredCharacterData")
-	if isSP() then
+	local clientData = spn_getClientData()
+
+	if not isClient() and not isServer() then
 		local FaceManager_Server = require("CharacterCustomisation/FaceManager/Main")
 		FaceManager_Server.SetCustomisationNewCharacter(getPlayer(), clientData)
 	else
@@ -30,7 +30,7 @@ local function OnNewCharacter()
 end
 local function onNewGame(player)
 	OnNewCharacterTimer = 200
-	Events.OnTick.Add(OnNewCharacter)
+	Events.OnPlayerUpdate.Add(OnNewCharacter)
 end
 
 	-- -----------------------------------------------
@@ -41,7 +41,7 @@ local OnPlayerJoinTimer = 0
 local function OnPlayerJoin()
 	OnPlayerJoinTimer = OnPlayerJoinTimer - 1
 	if OnPlayerJoinTimer > 0 then return end
-	Events.OnTick.Remove(OnPlayerJoin)
+	Events.OnPlayerUpdate.Remove(OnPlayerJoin)
 
 	-- print("SPNCC : OnPlayerJoin")
 
@@ -58,7 +58,7 @@ end
 
 local function onCreatePlayer(playerNum, player)
 	OnPlayerJoinTimer = 202
-	Events.OnTick.Add(OnPlayerJoin)
+	Events.OnPlayerUpdate.Add(OnPlayerJoin)
 end
 
 	-- -----------------------

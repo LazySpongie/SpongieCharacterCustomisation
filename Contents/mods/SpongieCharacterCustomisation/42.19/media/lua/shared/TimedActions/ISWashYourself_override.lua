@@ -32,7 +32,7 @@ function ISWashYourself:complete()
 	end	
 
 	-- update blood on face/muscle
-	local FaceManager_Server = require("CharacterCustomisation/FaceManager_Server")
+	local FaceManager_Server = require("CharacterCustomisation/FaceManager/Main")
 	FaceManager_Server.SyncBlood(self.character)
 
 	return true

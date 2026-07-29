@@ -45,7 +45,7 @@ function IS_ShaveStubble:perform()
 end
 
 function IS_ShaveStubble:complete()
-	local FaceManager_Server = require("CharacterCustomisation/FaceManager_Server")
+	local FaceManager_Server = require("CharacterCustomisation/FaceManager/Main")
 	FaceManager_Server.RemovePlayerStubble(self.character, self.isBeard, true)
 	FaceManager_Server.SyncRemoveCustomisation(self.character)
 	FaceManager_Server.OnClothingUpdated(self.character)

@@ -51,7 +51,6 @@ function FaceManager_Server.OnPlayerJoin(player)
 	FaceManager_Server.SetPlayerMuscle(player)
 	FaceManager_Server.RefreshCustomisation(player)
 	
-	-- Only runs in multiplayer
 	if isServer() then
 		sendServerCommand(player, "SPNCC", "SetPlayerModData", {data = data})
 		if isNewCharacter then
