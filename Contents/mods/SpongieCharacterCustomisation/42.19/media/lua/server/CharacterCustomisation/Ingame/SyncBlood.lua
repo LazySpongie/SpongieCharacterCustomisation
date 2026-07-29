@@ -10,7 +10,7 @@ if isClient() then return end
 
 
 local FaceManager_Shared = require("CharacterCustomisation/FaceManager_Shared")
-local FaceManager_Server = require("CharacterCustomisation/FaceManager_Server")
+local FaceManager_Server = require("CharacterCustomisation/FaceManager/Main")
 
 local math_ceil = math.ceil
 

@@ -5,7 +5,7 @@
 
 if isClient() then return end
 
-local FaceManager_Server = require("CharacterCustomisation/FaceManager_Server")
+local FaceManager_Server = require("CharacterCustomisation/FaceManager/Main")
 
 local Commands = {}
 

@@ -8,7 +8,7 @@
 
 if isClient() then return end
 
-local FaceManager_Server = require("CharacterCustomisation/FaceManager_Server")
+local FaceManager_Server = require("CharacterCustomisation/FaceManager/Main")
 
 local function doBodyHair(player, data)
 	if data.bodyHair or not data.bodyHairGrowthEnabled or data.GrowTimer.bodyHair == 0 then return false end

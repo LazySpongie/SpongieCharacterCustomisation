@@ -2,6 +2,8 @@
 local FaceManager_Shared = require("CharacterCustomisation/FaceManager_Shared")
 local SPNCC_Data = require("CharacterCustomisation/SPNCC_Data")
 
+local clientData = require("CharacterCustomisation/CharacterCreation/StoredCharacterData")
+
 CharacterCreationMain.wornCustomisationItems = {}
 
 	-- ---------------------------------
@@ -9,14 +11,7 @@ CharacterCreationMain.wornCustomisationItems = {}
 	-- ---------------------------------
 --refreshes the preview character by removing the previous body details and then adding the selected ones
 function CharacterCreationMain:spn_update_character_customisation()
-    local desc = MainScreen.instance.desc
-	local wornItems = desc:getWornItems()
-	
-	--grab every customisation item equipped by the preview and remove them
-	for i, v in ipairs(self.wornCustomisationItems) do
-		wornItems:remove(v)
-	end
-	self.wornCustomisationItems = {}	--wipe the table so new items can be added
+	self:spn_remove_items()
 	
 	--this isnt optimised but deleting and respawning the items is just easier
 	self:spn_update_face()
@@ -30,6 +25,17 @@ function CharacterCreationMain:spn_update_character_customisation()
 	
     self:setAvatarFromUI()
 	
+end
+
+function CharacterCreationMain:spn_remove_items()
+    local desc = MainScreen.instance.desc
+	local wornItems = desc:getWornItems()
+	
+	--grab every customisation item equipped by the preview and remove them
+	for i, v in ipairs(self.wornCustomisationItems) do
+		wornItems:remove(v)
+	end
+	self.wornCustomisationItems = {}
 end
 	--FACE
 function CharacterCreationMain:spn_update_face()
@@ -115,8 +121,6 @@ end
 --STORE CHARACTER DATA
 --we store this in the client so that the customisation choices can be saved into the players mod data on startup
 function CharacterCreationMain:spn_store_character_data()
-	local clientData = require("CharacterCustomisation/CharacterCreation/StoredCharacterData")
-
 	clientData.face = {name = "DefaultFace", id = "DefaultFace"}
 	local face = self.characterCustomisationPanel.faceMenu:getSelectedOption()
 	if face then
