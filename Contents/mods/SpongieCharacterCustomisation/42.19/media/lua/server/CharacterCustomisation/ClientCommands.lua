@@ -40,10 +40,6 @@ function Commands.RefreshCustomisation(player, args)
 	FaceManager_Server.RefreshCustomisation(player)
 end
 
-function Commands.RequestPlayerModData(player, args)
-	sendServerCommand(player, "SPNCC", "SetPlayerModData", {data = player:getModData().SPNCharCustom})
-end
-
 function Commands.OnPlayerJoin(player, args)
 	FaceManager_Server.OnPlayerJoin(player)
 end

@@ -75,23 +75,28 @@ function ISCharacterScreen:addShaveContext()
 	
 end
 function ISCharacterScreen:DebugAddBeardStubble()
-	print("DebugAddBeardStubble")
-	sendClientCommand(getPlayer(), "SPNCC", "AddPlayerStubble", { isBeard = true })
-	self.char:resetModel()
-	triggerEvent("OnClothingUpdated", self.char)
-
+	if not isClient() and not isServer() then
+		local FaceManager_Server = require("CharacterCustomisation/FaceManager/Main")
+		FaceManager_Server.AddPlayerStubble(getPlayer(), true)
+	else
+		sendClientCommand(getPlayer(), "SPNCC", "AddPlayerStubble", { isBeard = true })
+	end
 end
 function ISCharacterScreen:DebugAddHeadStubble()
-	print("DebugAddHeadStubble")
-	sendClientCommand(getPlayer(), "SPNCC", "AddPlayerStubble", { isBeard = false })
-	self.char:resetModel()
-	triggerEvent("OnClothingUpdated", self.char)
+	if not isClient() and not isServer() then
+		local FaceManager_Server = require("CharacterCustomisation/FaceManager/Main")
+		FaceManager_Server.AddPlayerStubble(getPlayer(), false)
+	else
+		sendClientCommand(getPlayer(), "SPNCC", "AddPlayerStubble", { isBeard = false })
+	end
 end
 function ISCharacterScreen:DebugAddBodyHair()
-	print("DebugAddBodyHair")
-	sendClientCommand(getPlayer(), "SPNCC", "AddPlayerBodyHair", { })
-	self.char:resetModel()
-	triggerEvent("OnClothingUpdated", self.char)
+	if not isClient() and not isServer() then
+		local FaceManager_Server = require("CharacterCustomisation/FaceManager/Main")
+		FaceManager_Server.AddPlayerBodyHair(getPlayer())
+	else
+		sendClientCommand(getPlayer(), "SPNCC", "AddPlayerBodyHair", { })
+	end
 end
 
 	-- ------------------------
