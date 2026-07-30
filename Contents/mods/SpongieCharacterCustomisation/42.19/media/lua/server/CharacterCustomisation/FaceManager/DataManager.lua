@@ -11,7 +11,7 @@ local FaceManager_Server = require("CharacterCustomisation/FaceManager/Main")
 function FaceManager_Server.SetDataValue(player, key, value, sendData)
 	local data = player:getModData().SPNCharCustom
 	data[key] = value
-	if sendData then sendServerCommand(player, "SPNCC", "SetPlayerModDataValues", {values = {[key] = value}}) end
+	if sendData and isServer() then sendServerCommand(player, "SPNCC", "SetPlayerModDataValues", {values = {[key] = value}}) end
 end
 
 function FaceManager_Server.CreatePlayerData(player)

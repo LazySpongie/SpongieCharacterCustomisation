@@ -134,7 +134,9 @@ function FaceManager_Server.SetCustomisation(player, clientData)
 	
 	FaceManager_Server.RefreshCustomisation(player)
 
-	sendServerCommand(player, "SPNCC", "SetPlayerModData", {data = player:getModData().SPNCharCustom})
+	if isServer() then
+		sendServerCommand(player, "SPNCC", "SetPlayerModData", {data = player:getModData().SPNCharCustom})
+	end
 end
 
 function  FaceManager_Server.RefreshCustomisation(player)
@@ -191,7 +193,9 @@ function FaceManager_Server.SetCustomisationNewCharacter(player, clientData)
 
 	FaceManager_Server.RefreshCustomisation(player)
 
-	sendServerCommand(player, "SPNCC", "SetPlayerModData", {data = data})
+	if isServer() then
+		sendServerCommand(player, "SPNCC", "SetPlayerModData", {data = data})
+	end
 end
 
 function FaceManager_Server.RefreshCustomisation(player)

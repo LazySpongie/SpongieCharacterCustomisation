@@ -27,8 +27,6 @@ end
 
 --initialise the menu when it is opened
 function CharacterCustomisationPanel_Ingame:OpenMenu(player)
-
-	-- sendClientCommand(player, "SPNCC", "RequestSyncModData", { })
 	
     self.backgroundColor = {r=0,g=0,b=0,a=0.8}
 
@@ -183,8 +181,12 @@ function CharacterCustomisationPanel_Ingame:UpdatePlayerCustomisation()
 	data.muscleVisuals = self.muscleButton:isSelected()
 	data.bodyHairGrowth = self.hairButton:isSelected()
 
-	sendClientCommand(self.char, "SPNCC", "SetCustomisation", { data = data})
-
+	if not isClient() and not isServer() then
+		local FaceManager_Server = require("CharacterCustomisation/FaceManager/Main")
+		FaceManager_Server.SetCustomisation(getPlayer(), data)
+	else
+		sendClientCommand(self.char, "SPNCC", "SetCustomisation", { data = data})
+	end
 	-- self.char:resetModel()
 	-- triggerEvent("OnClothingUpdated", self.char)
 end
