@@ -4,6 +4,7 @@ require("CharacterCustomisation/CharacterCreation/CC_UpdateCharacterPreview")
 local FONT_HGT_SMALL = getTextManager():getFontHeight(UIFont.Small)
 local FONT_HGT_MEDIUM = getTextManager():getFontHeight(UIFont.Medium)
 local BUTTON_HGT = FONT_HGT_SMALL + 6
+local UI_BORDER_SPACING = 10
 
 --When the gender or skintone is changed we need to re-fill all the windows and then update the character with new customisation items
 function CharacterCreationMain:refreshCustomisationWindow()
@@ -49,6 +50,10 @@ function CharacterCreationMain:createCharacterCustomisationWindow()
 		--self.customisationButton.attachedMenu:setJoypadFocused(false, nil)
 	end
 	
+end
+
+function CharacterCreationMain:createCustomisationBtn()
+
 	local function showMenu(target)
 		self.customisationButton.expanded = true
 		--target.customisationButton.attachedMenu:setJoypadFocused(true, nil)
@@ -75,51 +80,30 @@ function CharacterCreationMain:createCharacterCustomisationWindow()
 		self.characterCustomisationPanel:setCapture(true)
 	end
 
-	local customisationButtonWidth = self.voiceDemoButton:getWidth() * 0.6
-	
-    self.offsetX = self.voiceDemoButton.x + (self.voiceDemoButton:getWidth()/2) - (customisationButtonWidth/2)
-    self.offsetY = self.skinColorButton.y
 
-	--create the button that will open the menu
-	self.customisationButton = ISButton:new(self.offsetX, self.offsetY, customisationButtonWidth, BUTTON_HGT, getText("UI_characreation_charapanel"), self, showMenu)
+	--create button
+	self.customisationButton = ISButton:new(0, self.yOffset, FONT_HGT_MEDIUM, BUTTON_HGT, getText("UI_characreation_charapanel"), self, showMenu)
 	self.customisationButton:initialise()
 	self.customisationButton:instantiate()
 	self.customisationButton.isButton = nil -- NOTE: We don't want this button to be picked up by the vanilla joypad functions
 	self.customisationButton.expanded = false
 	self.customisationButton.attachedMenu = self.characterCustomisationPanel
-	-- local setJoypadFocused = self.customisationButton.setJoypadFocused
-	-- self.customisationButton.setJoypadFocused = function(self, focused, joypadData)
-	-- 	-- XXX: Do we close the dialog if the button loses focus?
-	-- 	-- self.focused = focused
-	-- 	-- if self.expanded then
-	-- 	-- 	self.attachedMenu:setJoypadFocused(focused, joypadData)
-	-- 	-- else
-	-- 	-- 	self.attachedMenu:setJoypadFocused(false, joypadData)
-	-- 	-- end
-	-- 	-- setJoypadFocused(self, focused, joypadData)
-	-- end
 	self.characterPanel:addChild(self.customisationButton)
-
+	table.insert(self.characterPanel.comboResizeTable, self.customisationButton)
+	table.insert(self.characterPanel.repos3Table, self.customisationButton)
+	
+	self.yOffset = self.yOffset + UI_BORDER_SPACING+BUTTON_HGT;
 end
 
 
-	-- ----------------------
-	-- -- ADD BUTTONS TO MENU
-	-- ----------------------
-local originalCharacterCreationMainCreate = CharacterCreationMain.create
----@diagnostic disable-next-line: duplicate-set-field
-function CharacterCreationMain.create(self)
-    originalCharacterCreationMainCreate(self)
-	
-	--Create char custom window
-	self:createCharacterCustomisationWindow()
-	
-	--Fill menus with options
-	self:spn_populate_customisation_window()
-	
-	self:spn_randomise_face()
-	-- self:spn_randomise_details()
-	self:spn_update_character_customisation()
+	-- --------------------------------------------------
+	-- -- NEED TO PLACE BUTTON IN THE BODY TAB
+	-- --------------------------------------------------
+local oldCreateBodyTypeBtn = CharacterCreationMain.createBodyTypeBtn
+function CharacterCreationMain:createBodyTypeBtn()
+	oldCreateBodyTypeBtn(self)
+
+	self:createCustomisationBtn()
 end
 
 
@@ -137,4 +121,24 @@ function CharacterCreationMain:setVisible(bVisible, joypadData)
 
 		self:refreshCustomisationWindow()
 	end
+end
+
+
+	-- ----------------------
+	-- -- SETUP
+	-- ----------------------
+local originalCharacterCreationMainCreate = CharacterCreationMain.create
+---@diagnostic disable-next-line: duplicate-set-field
+function CharacterCreationMain.create(self)
+    originalCharacterCreationMainCreate(self)
+	
+	--Create char custom window
+	self:createCharacterCustomisationWindow()
+	
+	--Fill menus with options
+	self:spn_populate_customisation_window()
+	
+	self:spn_randomise_face()
+	-- self:spn_randomise_details()
+	self:spn_update_character_customisation()
 end
