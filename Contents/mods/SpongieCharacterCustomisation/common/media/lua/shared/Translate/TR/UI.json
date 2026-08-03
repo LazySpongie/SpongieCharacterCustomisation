@@ -14,5 +14,14 @@
     "UI_shave_stubble_body": "Vücut Kıllarını Tıraş Et",
     "UI_debug_add_stubble_beard": "(Debug) Sakal Uzaması Ekle",
     "UI_debug_add_stubble_head": "(Debug) Saç Uzaması Ekle",
-    "UI_debug_add_stubble_body": "(Debug) Vücut Kılı Uzaması Ekle"
+    "UI_debug_add_stubble_body": "(Debug) Vücut Kılı Uzaması Ekle",
+    "UI_ClothingType_SPNCC:Blank": "IGNORE THIS",
+    "UI_ClothingType_SPNCC:BodyDetail": "IGNORE THIS",
+    "UI_ClothingType_SPNCC:BodyDetail2": "IGNORE THIS",
+    "UI_ClothingType_SPNCC:BodyHair": "IGNORE THIS",
+    "UI_ClothingType_SPNCC:Face": "IGNORE THIS",
+    "UI_ClothingType_SPNCC:Face_Model": "IGNORE THIS",
+    "UI_ClothingType_SPNCC:Muscle": "IGNORE THIS",
+    "UI_ClothingType_SPNCC:StubbleBeard": "IGNORE THIS",
+    "UI_ClothingType_SPNCC:StubbleHead": "IGNORE THIS"
 }

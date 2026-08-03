@@ -4,7 +4,7 @@
     "UI_BodyHairGrowth": "Body Hair Growth",
     "UI_characreation_face": "Face",
     "UI_characreation_bodydetail": "Details",
-    "UI_characreation_charapanel": "Customise Appearance",
+    "UI_characreation_charapanel": "Change Appearance",
     "UI_characreation_appearance": "Appearance",
     "UI_characreation_shave": "Shave",
     "UI_characreation_facedisabled": "Changing faces is unavailable",
@@ -14,5 +14,15 @@
     "UI_shave_stubble_body": "Shave Body Hair",
     "UI_debug_add_stubble_beard": "(Debug) Add Beard Stubble",
     "UI_debug_add_stubble_head": "(Debug) Add Head Stubble",
-    "UI_debug_add_stubble_body": "(Debug) Add Body Hair"
+    "UI_debug_add_stubble_body": "(Debug) Add Body Hair",
+    
+    "UI_ClothingType_SPNCC:Blank": "IGNORE THIS",
+    "UI_ClothingType_SPNCC:BodyDetail": "IGNORE THIS",
+    "UI_ClothingType_SPNCC:BodyDetail2": "IGNORE THIS",
+    "UI_ClothingType_SPNCC:BodyHair": "IGNORE THIS",
+    "UI_ClothingType_SPNCC:Face": "IGNORE THIS",
+    "UI_ClothingType_SPNCC:Face_Model": "IGNORE THIS",
+    "UI_ClothingType_SPNCC:Muscle": "IGNORE THIS",
+    "UI_ClothingType_SPNCC:StubbleBeard": "IGNORE THIS",
+    "UI_ClothingType_SPNCC:StubbleHead": "IGNORE THIS"
 }

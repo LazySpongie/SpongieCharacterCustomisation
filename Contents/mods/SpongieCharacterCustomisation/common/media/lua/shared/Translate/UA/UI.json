@@ -14,5 +14,14 @@
     "UI_shave_stubble_body": "Зголити волосся на тілі",
     "UI_debug_add_stubble_beard": "(Відлагодження) Додати щетину на бороді",
     "UI_debug_add_stubble_head": "(Відлагодження) Додати щетину на голові",
-    "UI_debug_add_stubble_body": "(Відлагодження) Додати волосся на тілі"
+    "UI_debug_add_stubble_body": "(Відлагодження) Додати волосся на тілі",
+    "UI_ClothingType_SPNCC:Blank": "IGNORE THIS",
+    "UI_ClothingType_SPNCC:BodyDetail": "IGNORE THIS",
+    "UI_ClothingType_SPNCC:BodyDetail2": "IGNORE THIS",
+    "UI_ClothingType_SPNCC:BodyHair": "IGNORE THIS",
+    "UI_ClothingType_SPNCC:Face": "IGNORE THIS",
+    "UI_ClothingType_SPNCC:Face_Model": "IGNORE THIS",
+    "UI_ClothingType_SPNCC:Muscle": "IGNORE THIS",
+    "UI_ClothingType_SPNCC:StubbleBeard": "IGNORE THIS",
+    "UI_ClothingType_SPNCC:StubbleHead": "IGNORE THIS"
 }

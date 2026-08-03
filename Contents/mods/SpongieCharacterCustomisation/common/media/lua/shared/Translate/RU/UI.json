@@ -14,5 +14,15 @@
     "UI_shave_stubble_body": "Сбрить волосы на теле",
     "UI_debug_add_stubble_beard": "(Отладка) Добавить щетину бороды",
     "UI_debug_add_stubble_head": "(Отладка) Добавить щетину на голове",
-    "UI_debug_add_stubble_body": "(Отладка) Добавить волосы на теле"
+    "UI_debug_add_stubble_body": "(Отладка) Добавить волосы на теле",
+    
+    "UI_ClothingType_SPNCC:Blank": "IGNORE THIS",
+    "UI_ClothingType_SPNCC:BodyDetail": "IGNORE THIS",
+    "UI_ClothingType_SPNCC:BodyDetail2": "IGNORE THIS",
+    "UI_ClothingType_SPNCC:BodyHair": "IGNORE THIS",
+    "UI_ClothingType_SPNCC:Face": "IGNORE THIS",
+    "UI_ClothingType_SPNCC:Face_Model": "IGNORE THIS",
+    "UI_ClothingType_SPNCC:Muscle": "IGNORE THIS",
+    "UI_ClothingType_SPNCC:StubbleBeard": "IGNORE THIS",
+    "UI_ClothingType_SPNCC:StubbleHead": "IGNORE THIS"
 }
