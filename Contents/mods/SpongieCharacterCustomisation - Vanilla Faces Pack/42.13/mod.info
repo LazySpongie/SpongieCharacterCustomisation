@@ -3,7 +3,9 @@ id=SPNCCFaces
 author=Spongie
 poster=poster.png
 icon=icon.png
-description=Adds faces for the vanilla body textures. Includes 4 male faces and 4 female faces.
-modversion=1
+
+description= Adds faces for the vanilla body textures. Includes 4 male faces and 4 female faces
+description= <BR>
+description= <H1><RED>NOT COMPATIBLE WITH RETEXTURES. IF YOU ARE USING TOMB'S BODY OR SPONGIE'S RETEXTURE THEN USE THE FACE PACK THAT COMES WITH THOSE MODS.
 require=\SPNCC
 incompatible=\SPNRetexture,\SPNRetextureUnderwear,\TombBodyTex,\TombBodyTexDOLL,\TombBodyTexNUDE,\TombBodyCustom

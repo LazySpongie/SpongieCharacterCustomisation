@@ -20,7 +20,6 @@ function FaceManager_Server.SyncBlood(player)
 		FaceManager_Server.SyncBloodOnItem(player, item)
 	end
 
-	-- player:resetModel()
 	if isServer() then
 		sendServerCommand(player, "SPNCC", "OnClothingUpdated", {})
 	else

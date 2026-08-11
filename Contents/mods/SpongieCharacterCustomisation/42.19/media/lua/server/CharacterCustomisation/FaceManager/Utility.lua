@@ -28,7 +28,7 @@ function FaceManager_Server.AddItem(player, id, texture)
 	return item
 end
 function FaceManager_Server.RemoveItem(player, item)
-	if not item then return end
+	-- if not item then return end
 
 	-- this doesnt work when the bodylocation is set to multi item
 	-- player:removeWornItem(item)

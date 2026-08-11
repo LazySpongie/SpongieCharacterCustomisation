@@ -62,11 +62,11 @@ function FaceManager_Server.CheckData(player, data)
 		FaceManager_Server.ConvertData(player, data)
 	end
 
-	--cap body hair growth
-	local growTimer = data.GrowTimer
-	local math_min = math.min
-	growTimer.stubbleHead = math_min(growTimer.stubbleHead, sandbox.StubbleHeadGrowth *24)
-	growTimer.stubbleBeard = math_min(growTimer.stubbleBeard, sandbox.StubbleBeardGrowth *24)
-	growTimer.bodyHair = math_min(growTimer.bodyHair, sandbox.BodyHairGrowth *24)
+	-- --cap body hair growth
+	-- local growTimer = data.GrowTimer
+	-- local math_min = math.min
+	-- growTimer.stubbleHead = math_min(growTimer.stubbleHead, sandbox.StubbleHeadGrowth *24)
+	-- growTimer.stubbleBeard = math_min(growTimer.stubbleBeard, sandbox.StubbleBeardGrowth *24)
+	-- growTimer.bodyHair = math_min(growTimer.bodyHair, sandbox.BodyHairGrowth *24)
 
 end

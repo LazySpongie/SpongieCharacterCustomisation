@@ -31,8 +31,6 @@ end
 
 function Commands.OnClothingUpdated(args)
 	FaceManager_Shared.OnClothingUpdated(getPlayer())
-	-- triggerEvent("OnClothingUpdated", getPlayer())
-	-- getPlayer():resetModelNextFrame()
 end
 
 

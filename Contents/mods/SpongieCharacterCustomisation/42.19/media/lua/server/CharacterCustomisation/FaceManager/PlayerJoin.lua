@@ -10,18 +10,19 @@ local FaceManager_Shared = require("CharacterCustomisation/FaceManager_Shared")
 local FaceManager_Server = require("CharacterCustomisation/FaceManager/Main")
 
 function FaceManager_Server.OnPlayerJoin(player)
-	local data = player:getModData().SPNCharCustom
-	local isNewCharacter = (not data) or (not data.hasCustomised) 
+	local modData = player:getModData()
+
+	local data = modData.SPNCharCustom or FaceManager_Server.CreatePlayerData(player)
+	local hasCustomised = not data.hasCustomised
 	
-	if not isNewCharacter then
+	if hasCustomised then
 		-- print("SPNCC : CONNECTING PLAYER ALREADY HAS CUSTOMISATION")
 		FaceManager_Server.CheckData(player, data)
 		-- FaceManager_Server.RefreshCustomisation(player)
 	else
 		-- print("SPNCC : CONNECTING PLAYER DOES NOT HAVE CUSTOMISATION")
-		data = FaceManager_Server.CreatePlayerData(player)
-		
-		--we need to replace the vanilla chest hair and stubble
+
+		-- replace vanilla chest hair and stubble
 		local visual = player:getHumanVisual()
 		if visual then
 
@@ -48,15 +49,14 @@ function FaceManager_Server.OnPlayerJoin(player)
 		end
 	end
 
-	FaceManager_Server.SetPlayerMuscle(player)
 	FaceManager_Server.RefreshCustomisation(player)
 	
 	if isServer() then
 		sendServerCommand(player, "SPNCC", "SetPlayerModData", {data = data})
-		if isNewCharacter then
+		if hasCustomised then
 			sendServerCommand(player, "SPNCC", "OpenCharacterCustomisationWindow", {})
 		end
-	elseif isNewCharacter then
+	elseif hasCustomised then
 		FaceManager_Shared.OpenCharacterCustomisationWindow(player, true)
 	end
 end

@@ -11,14 +11,11 @@ local FaceManager_Shared = {}
 
 function FaceManager_Shared.OnClothingUpdated(player)
 	triggerEvent("OnClothingUpdated", player)
-	player:resetModel()
+	player:resetModelNextFrame()
 end
 
 function FaceManager_Shared.CreateItem(type, texture)
-
-	-- local item = InventoryItemFactory.CreateItem(type) --b41
-	local item = instanceItem(type) --b42
-
+	local item = instanceItem(type)
 	FaceManager_Shared.SetItemTexture(item, texture)
 	return item
 end
