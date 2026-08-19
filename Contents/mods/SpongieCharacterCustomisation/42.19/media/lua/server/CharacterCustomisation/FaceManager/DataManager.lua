@@ -16,8 +16,13 @@ end
 
 function FaceManager_Server.CreatePlayerData(player)
 	local moddata = player:getModData()
-	moddata.SPNCharCustom = {}
-	local data = moddata.SPNCharCustom
+	moddata.SPNCharCustom = FaceManager_Server.CreateDefaultPlayerData()
+	
+	return moddata.SPNCharCustom
+end
+
+function FaceManager_Server.CreateDefaultPlayerData()
+	local data = {}
 
 	data.version = FaceManager_Server.modversion
 	data.hasCustomised = false
@@ -29,13 +34,17 @@ function FaceManager_Server.CreatePlayerData(player)
 	data.muscleVisuals = SandboxVars.SPNCharCustom.MuscleVisuals ~= 2	--if muscles are not force disabled then we set it to true
 	data.bodyHairGrowthEnabled = SandboxVars.SPNCharCustom.BodyHairGrowthEnabled ~= 2
 
-	data.GrowTimer = {
+	data.GrowTimer = FaceManager_Server.CreateGrowTimer()
+
+	return data
+end
+
+function FaceManager_Server.CreateGrowTimer()
+	return {
 		stubbleHead = SandboxVars.SPNCharCustom.StubbleHeadGrowth *24,
 		stubbleBeard = SandboxVars.SPNCharCustom.StubbleBeardGrowth *24,
 		bodyHair = SandboxVars.SPNCharCustom.BodyHairGrowth *24,
 	}
-
-	return data
 end
 
 function FaceManager_Server.ConvertData(player, data)
@@ -62,11 +71,14 @@ function FaceManager_Server.CheckData(player, data)
 		FaceManager_Server.ConvertData(player, data)
 	end
 
-	-- --cap body hair growth
-	-- local growTimer = data.GrowTimer
-	-- local math_min = math.min
-	-- growTimer.stubbleHead = math_min(growTimer.stubbleHead, sandbox.StubbleHeadGrowth *24)
-	-- growTimer.stubbleBeard = math_min(growTimer.stubbleBeard, sandbox.StubbleBeardGrowth *24)
-	-- growTimer.bodyHair = math_min(growTimer.bodyHair, sandbox.BodyHairGrowth *24)
+	--bandaid fix for corrupted mod data that happens to some people for some reason
+	data.GrowTimer = data.GrowTimer or FaceManager_Server.CreateGrowTimer()
+
+	--cap body hair growth
+	local growTimer = data.GrowTimer
+	local math_min = math.min
+	growTimer.stubbleHead = math_min(growTimer.stubbleHead, sandbox.StubbleHeadGrowth *24)
+	growTimer.stubbleBeard = math_min(growTimer.stubbleBeard, sandbox.StubbleBeardGrowth *24)
+	growTimer.bodyHair = math_min(growTimer.bodyHair, sandbox.BodyHairGrowth *24)
 
 end

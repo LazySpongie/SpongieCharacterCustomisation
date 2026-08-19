@@ -29,7 +29,7 @@ local function OnNewCharacter()
 	end
 end
 local function onNewGame(player)
-	OnNewCharacterTimer = 200
+	OnNewCharacterTimer = 1
 	Events.OnPlayerUpdate.Add(OnNewCharacter)
 end
 
@@ -57,7 +57,7 @@ local function OnPlayerJoin()
 end
 
 local function onCreatePlayer(playerNum, player)
-	OnPlayerJoinTimer = 202
+	OnPlayerJoinTimer = 1
 	Events.OnPlayerUpdate.Add(OnPlayerJoin)
 end
 
