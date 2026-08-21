@@ -52,10 +52,12 @@ local function GrowPlayerBodyHair(player)
 	if player:isDead() then return end
 
 	local data = player:getModData().SPNCharCustom
-	if not data then
+	if data == nil then
 		print(player:getUsername() .. " does not have data")
 		return
 	end
+
+	data.GrowTimer = data.GrowTimer or FaceManager_Server.CreateGrowTimer()
 
 	doBodyHair(player, data)
 	doHeadStubble(player, data)
