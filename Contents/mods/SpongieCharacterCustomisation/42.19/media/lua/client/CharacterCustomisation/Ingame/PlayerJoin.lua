@@ -1,12 +1,4 @@
 
-local function spn_getClientData()
-	local ok, data = pcall(require, "CharacterCustomisation/CharacterCreation/StoredCharacterData")
-	if ok and type(data) == "table" then
-		return data
-	end
-	return nil
-end
-
 	-- -----------------------------------------
 	-- -- SET UP MOD DATA AFTER CHARACTER CREATION
 	-- -----------------------------------------
@@ -19,7 +11,7 @@ local function OnNewCharacter()
 
 	-- print("SPNCC : OnNewCharacter")
 
-	local clientData = spn_getClientData()
+	local clientData = require("CharacterCustomisation/CharacterCreation/StoredCharacterData")
 
 	if not isClient() and not isServer() then
 		local FaceManager_Server = require("CharacterCustomisation/FaceManager/Main")
