@@ -14,7 +14,6 @@ local ignoredBodylocations = {
 
 local old_createClothingComboDebug = CharacterCreationMain.createClothingComboDebug
 function CharacterCreationMain:createClothingComboDebug(bodyLocation)
-    print("createClothingComboDebug : " .. bodyLocation)
     if ignoredBodylocations[bodyLocation] then return end
 	old_createClothingComboDebug(self, bodyLocation)
 end
