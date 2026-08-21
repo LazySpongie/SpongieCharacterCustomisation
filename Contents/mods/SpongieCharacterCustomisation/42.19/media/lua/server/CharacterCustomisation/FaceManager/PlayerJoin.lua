@@ -10,10 +10,8 @@ local FaceManager_Shared = require("CharacterCustomisation/FaceManager_Shared")
 local FaceManager_Server = require("CharacterCustomisation/FaceManager/Main")
 
 function FaceManager_Server.OnPlayerJoin(player)
-	local modData = player:getModData()
-
-	local data = modData.SPNCharCustom or FaceManager_Server.CreatePlayerData(player)
-	local hasCustomised = not data.hasCustomised
+	local data = player:getModData().SPNCharCustom or FaceManager_Server.CreatePlayerData(player)
+	local hasCustomised = data.hasCustomised
 	
 	if hasCustomised then
 		-- print("SPNCC : CONNECTING PLAYER ALREADY HAS CUSTOMISATION")
@@ -53,10 +51,12 @@ function FaceManager_Server.OnPlayerJoin(player)
 	
 	if isServer() then
 		sendServerCommand(player, "SPNCC", "SetPlayerModData", {data = data})
-		if hasCustomised then
+		if not hasCustomised then
 			sendServerCommand(player, "SPNCC", "OpenCharacterCustomisationWindow", {})
 		end
-	elseif hasCustomised then
-		FaceManager_Shared.OpenCharacterCustomisationWindow(player, true)
+	else
+		if not hasCustomised then
+			FaceManager_Shared.OpenCharacterCustomisationWindow(player, true)
+		end
 	end
 end

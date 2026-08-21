@@ -8,6 +8,7 @@ module Base
         BodyLocation = SPNCC:BodyDetail,
         Tags = SPNCC:BodyDetail,
         hidden = true,
+		Weight = 0,
     }
 
     item Detail_Moles
@@ -18,6 +19,7 @@ module Base
         BodyLocation = SPNCC:BodyDetail,
         Tags = SPNCC:BodyDetail,
         hidden = true,
+		Weight = 0,
     }
 
     item Detail_MissingEye
@@ -28,6 +30,7 @@ module Base
         BodyLocation = SPNCC:BodyDetail2,
         Tags = SPNCC:BodyDetail,
         hidden = true,
+		Weight = 0,
     }
 
     item Detail_Burn
@@ -38,6 +41,7 @@ module Base
         BodyLocation = SPNCC:BodyDetail2,
         Tags = SPNCC:BodyDetail,
         hidden = true,
+		Weight = 0,
     }
 	
     item Detail_Scar_Face
@@ -48,6 +52,7 @@ module Base
         BodyLocation = SPNCC:BodyDetail2,
         Tags = SPNCC:BodyDetail,
         hidden = true,
+		Weight = 0,
     }
 	
     item Detail_Scar_Body_Chest
@@ -58,6 +63,7 @@ module Base
         BodyLocation = SPNCC:BodyDetail2,
         Tags = SPNCC:BodyDetail,
         hidden = true,
+		Weight = 0,
     }
 	
     item Detail_Scar_Body_Stomach
@@ -68,6 +74,7 @@ module Base
         BodyLocation = SPNCC:BodyDetail2,
         Tags = SPNCC:BodyDetail,
         hidden = true,
+		Weight = 0,
     }
 	
     item Detail_Scar_Body_Other
@@ -78,6 +85,7 @@ module Base
         BodyLocation = SPNCC:BodyDetail2,
         Tags = SPNCC:BodyDetail,
         hidden = true,
+		Weight = 0,
     }
 	
 }

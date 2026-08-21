@@ -8,6 +8,7 @@ module Base
         BodyLocation = SPNCC:Face,
         Tags = SPNCC:Face;SPNCC:CanHaveBlood;SPNCC:RemoveOnZombification,
         hidden = true,
+		Weight = 0,
     }
     item Face_Janine
     {
@@ -17,6 +18,7 @@ module Base
         BodyLocation = SPNCC:Face,
         Tags = SPNCC:Face;SPNCC:CanHaveBlood;SPNCC:RemoveOnZombification,
         hidden = true,
+		Weight = 0,
     }
     item Face_Maryanne
     {
@@ -26,6 +28,7 @@ module Base
         BodyLocation = SPNCC:Face,
         Tags = SPNCC:Face;SPNCC:CanHaveBlood;SPNCC:RemoveOnZombification,
         hidden = true,
+		Weight = 0,
     }
     item Face_Vicky
     {
@@ -35,6 +38,7 @@ module Base
         BodyLocation = SPNCC:Face,
         Tags = SPNCC:Face;SPNCC:CanHaveBlood;SPNCC:RemoveOnZombification,
         hidden = true,
+		Weight = 0,
     }
     
 
@@ -46,6 +50,7 @@ module Base
         BodyLocation = SPNCC:Face,
         Tags = SPNCC:Face;SPNCC:CanHaveBlood;SPNCC:RemoveOnZombification,
         hidden = true,
+		Weight = 0,
     }
     item Face_James
     {
@@ -55,6 +60,7 @@ module Base
         BodyLocation = SPNCC:Face,
         Tags = SPNCC:Face;SPNCC:CanHaveBlood;SPNCC:RemoveOnZombification,
         hidden = true,
+		Weight = 0,
     }
     item Face_Chris
     {
@@ -64,6 +70,7 @@ module Base
         BodyLocation = SPNCC:Face,
         Tags = SPNCC:Face;SPNCC:CanHaveBlood;SPNCC:RemoveOnZombification,
         hidden = true,
+		Weight = 0,
     }
     item Face_Hank
     {
@@ -73,6 +80,7 @@ module Base
         BodyLocation = SPNCC:Face,
         Tags = SPNCC:Face;SPNCC:CanHaveBlood;SPNCC:RemoveOnZombification,
         hidden = true,
+		Weight = 0,
     }
 
 
