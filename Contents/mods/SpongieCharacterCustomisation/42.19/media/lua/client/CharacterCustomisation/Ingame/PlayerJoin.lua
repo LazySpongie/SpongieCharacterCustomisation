@@ -1,3 +1,4 @@
+if isServer() then return end
 
 	-- -----------------------------------------
 	-- -- SET UP MOD DATA AFTER CHARACTER CREATION
@@ -21,7 +22,7 @@ local function OnNewCharacter()
 	end
 end
 local function onNewGame(player)
-	OnNewCharacterTimer = 1
+	OnNewCharacterTimer = 200
 	Events.OnPlayerUpdate.Add(OnNewCharacter)
 end
 
@@ -49,7 +50,7 @@ local function OnPlayerJoin()
 end
 
 local function onCreatePlayer(playerNum, player)
-	OnPlayerJoinTimer = 1
+	OnPlayerJoinTimer = 200
 	Events.OnPlayerUpdate.Add(OnPlayerJoin)
 end
 
