@@ -139,34 +139,6 @@ function FaceManager_Server.SetCustomisation(player, clientData)
 	end
 end
 
-function  FaceManager_Server.RefreshCustomisation(player)
-	local data = player:getModData().SPNCharCustom
-	
-	FaceManager_Server.SetPlayerMuscle(player)
-
-	FaceManager_Server.SetPlayerFace(player, data.face.name, data.face.id, data.face.texture, false)
-
-	FaceManager_Server.SetPlayerBodyDetails(player, data.bodyDetails, false)
-
-	FaceManager_Server.RemoveItemAtBodyLocation(player, SPNCC.ItemBodyLocation.BodyHair)
-	FaceManager_Server.RemoveItemAtBodyLocation(player, SPNCC.ItemBodyLocation.StubbleBeard)
-	FaceManager_Server.RemoveItemAtBodyLocation(player, SPNCC.ItemBodyLocation.StubbleHead)
-
-	if data.stubbleBeard then
-		FaceManager_Server.AddPlayerStubble(player, true, false)
-	end
-	if data.stubbleHead then
-		FaceManager_Server.AddPlayerStubble(player, false, false)
-	end
-	if data.bodyHair then
-		FaceManager_Server.AddPlayerBodyHair(player, false)
-	end
-
-	FaceManager_Server.SyncRemoveCustomisation(player)
-	
-	FaceManager_Server.OnClothingUpdated(player)
-end
-
 function FaceManager_Server.SetCustomisationNewCharacter(player, clientData)
 	local data = FaceManager_Server.CreatePlayerData(player)
 	if not clientData then 
