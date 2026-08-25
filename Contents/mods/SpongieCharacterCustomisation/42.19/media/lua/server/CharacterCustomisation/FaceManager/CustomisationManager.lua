@@ -172,6 +172,7 @@ end
 
 function FaceManager_Server.RefreshCustomisation(player)
 	local data = player:getModData().SPNCharCustom
+	if not data then return end
 
 	FaceManager_Server.SetPlayerMuscle(player)
 
