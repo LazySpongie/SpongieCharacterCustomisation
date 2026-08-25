@@ -16,7 +16,7 @@ function FaceManager_Server.OnPlayerJoin(player)
 	if hasCustomised then
 		-- print("SPNCC : CONNECTING PLAYER ALREADY HAS CUSTOMISATION")
 		FaceManager_Server.CheckData(player, data)
-		-- FaceManager_Server.RefreshCustomisation(player)
+		
 	else
 		-- print("SPNCC : CONNECTING PLAYER DOES NOT HAVE CUSTOMISATION")
 
